@@ -13,7 +13,7 @@ import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
  */
 public class HttpService {
 
-    private final static CloseableHttpClient httpClient = createHttpClient();
+    private static final CloseableHttpClient httpClient = createHttpClient();
 
     private HttpService() {
     }
