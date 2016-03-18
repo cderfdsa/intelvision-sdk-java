@@ -6,7 +6,7 @@ import com.zeno.intelvision.response.PersonGetInfoResponse;
 /**
  * Created by pc on 2016/3/16.
  */
-public class PersonGetInfoRequest extends ZenoRequest<PersonGetInfoResponse>{
+public class PersonGetInfoRequest extends ZenoRequest<PersonGetInfoResponse> {
 
     @Param(name = "person_id")
     private String personId;

@@ -8,7 +8,7 @@ import com.zeno.intelvision.response.TrainSearchResponse;
  */
 public class TrainSearchRequest extends ZenoRequest<TrainSearchResponse> {
 
-    @Param(name="faceset_id")
+    @Param(name = "faceset_id")
     private String facesetId;
 
     public String getFacesetId() {

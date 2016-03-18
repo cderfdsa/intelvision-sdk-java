@@ -6,7 +6,7 @@ import com.zeno.intelvision.response.FaceGetImageResponse;
 /**
  * Created by pc on 2016/3/15.
  */
-public class FaceGetImageRequest extends ZenoRequest<FaceGetImageResponse>{
+public class FaceGetImageRequest extends ZenoRequest<FaceGetImageResponse> {
 
     @Param(name = "face_id")
     private String faceId;

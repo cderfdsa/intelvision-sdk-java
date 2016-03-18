@@ -6,7 +6,7 @@ import com.zeno.intelvision.response.FacesetCreateResponse;
 /**
  * Created by pc on 2016/3/16.
  */
-public class FacesetCreateRequest extends ZenoRequest<FacesetCreateResponse>{
+public class FacesetCreateRequest extends ZenoRequest<FacesetCreateResponse> {
 
     @Param(name = "faceset_name")
     private String facesetName;

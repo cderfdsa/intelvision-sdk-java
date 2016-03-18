@@ -25,7 +25,7 @@ public class ImageTest extends FaceDetectTest {
         request.setImageId(imageId);
         ImageGetInfoResponse response = zenoClient.execute(request);
         assertNotNull(response.getImage().getImageId());
-        assertEquals(imageId,response.getImage().getImageId());
+        assertEquals(imageId, response.getImage().getImageId());
     }
 
     @Test
@@ -37,7 +37,7 @@ public class ImageTest extends FaceDetectTest {
     }
 
     @Test
-    public void setInfo(){
+    public void setInfo() {
         ImageSetInfoRequest request = new ImageSetInfoRequest();
         request.setImageId(imageId);
         request.setTag("test");
@@ -47,10 +47,10 @@ public class ImageTest extends FaceDetectTest {
     }
 
     @AfterClass
-    public static void deleteImage(){
+    public static void deleteImage() {
         ImageDeleteRequest request = new ImageDeleteRequest();
         request.setImageId(imageId);
         ImageDeleteResponse response = zenoClient.execute(request);
-        assertEquals(true,response.isSuccess());
+        assertEquals(true, response.isSuccess());
     }
 }

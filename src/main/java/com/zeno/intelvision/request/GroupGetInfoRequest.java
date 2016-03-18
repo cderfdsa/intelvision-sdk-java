@@ -6,7 +6,7 @@ import com.zeno.intelvision.response.GroupGetInfoResponse;
 /**
  * Created by pc on 2016/3/16.
  */
-public class GroupGetInfoRequest extends ZenoRequest<GroupGetInfoResponse>{
+public class GroupGetInfoRequest extends ZenoRequest<GroupGetInfoResponse> {
 
     @Param(name = "group_id")
     private String groupId;

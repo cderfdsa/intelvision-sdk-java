@@ -14,7 +14,7 @@ import static org.junit.Assert.assertNotNull;
 public class TrainTest extends CreateAndDeleteBaseTest {
 
     @BeforeClass
-    public static void add(){
+    public static void add() {
         PersonAddFaceRequest personAddFaceRequest = new PersonAddFaceRequest();
         personAddFaceRequest.setFaceId(faceId);
         personAddFaceRequest.setPersonId(personId);
@@ -31,11 +31,11 @@ public class TrainTest extends CreateAndDeleteBaseTest {
         groupAddPersonRequest.setGroupId(groupId);
         groupAddPersonRequest.setPersonId(personId);
         GroupAddPersonResponse groupAddPersonResponse = zenoClient.execute(groupAddPersonRequest);
-        assertEquals("group add person fail",true, groupAddPersonResponse.isSuccess());
+        assertEquals("group add person fail", true, groupAddPersonResponse.isSuccess());
     }
 
     @Test
-    public void search(){
+    public void search() {
         TrainSearchRequest request = new TrainSearchRequest();
         request.setFacesetId(facesetId);
         TrainSearchResponse response = zenoClient.execute(request);
@@ -43,7 +43,7 @@ public class TrainTest extends CreateAndDeleteBaseTest {
     }
 
     @Test
-    public void verify(){
+    public void verify() {
         TrainVerifyRequest request = new TrainVerifyRequest();
         request.setPersonId(personId);
         TrainVerifyResponse response = zenoClient.execute(request);
@@ -51,7 +51,7 @@ public class TrainTest extends CreateAndDeleteBaseTest {
     }
 
     @Test
-    public void identify(){
+    public void identify() {
         TrainIdentifyRequest request = new TrainIdentifyRequest();
         request.setGroupId(groupId);
         TrainIdentifyResponse response = zenoClient.execute(request);

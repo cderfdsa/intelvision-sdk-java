@@ -44,33 +44,33 @@ public class FaceTest extends CreateAndDeleteBaseTest {
         request.setTag("test");
         FaceSetInfoResponse response = zenoClient.execute(request);
         assertNotNull(response.getFace().getFaceId());
-        assertEquals("test",response.getFace().getTag());
+        assertEquals("test", response.getFace().getTag());
     }
 
     @Test
-    public void getPerson(){
+    public void getPerson() {
         FaceGetPersonRequest request = new FaceGetPersonRequest();
         request.setFaceId(faceId);
         FaceGetPersonResponse response = zenoClient.execute(request);
         assertNotNull(response.getPerson().getPersonId());
-        assertEquals(personId,response.getPerson().getPersonId());
+        assertEquals(personId, response.getPerson().getPersonId());
     }
 
     @Test
-    public void getImage(){
+    public void getImage() {
         FaceGetImageRequest request = new FaceGetImageRequest();
         request.setFaceId(faceId);
         FaceGetImageResponse response = zenoClient.execute(request);
         assertNotNull(response.getImage().getImageId());
-        assertEquals(imageId,response.getImage().getImageId());
+        assertEquals(imageId, response.getImage().getImageId());
     }
 
     @Test
-    public void getFaceset(){
+    public void getFaceset() {
         FaceGetFacesetRequest request = new FaceGetFacesetRequest();
         request.setFaceId(faceId);
         FaceGetFacesetResponse response = zenoClient.execute(request);
         assertNotNull(response.getFacesets().get(0).getFacesetId());
-        assertEquals(facesetId,response.getFacesets().get(0).getFacesetId());
+        assertEquals(facesetId, response.getFacesets().get(0).getFacesetId());
     }
 }

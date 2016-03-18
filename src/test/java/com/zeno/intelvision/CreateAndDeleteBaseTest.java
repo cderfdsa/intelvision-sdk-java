@@ -12,7 +12,7 @@ import static org.junit.Assert.assertNotNull;
 /**
  * Created by pc on 2016/3/17.
  */
-public class CreateAndDeleteBaseTest extends FaceDetectTest{
+public class CreateAndDeleteBaseTest extends FaceDetectTest {
     protected static String groupId;
     protected static String personId;
     protected static String facesetId;
@@ -29,21 +29,21 @@ public class CreateAndDeleteBaseTest extends FaceDetectTest{
         personCreateRequest.setRace((int) (Math.random() * 3 + 1));
         personCreateRequest.setGender((int) (Math.random() * 2 + 1));
         PersonCreateResponse personCreateResponse = zenoClient.execute(personCreateRequest);
-        assertNotNull("person create fail",personCreateResponse.getPersonId());
+        assertNotNull("person create fail", personCreateResponse.getPersonId());
         personId = personCreateResponse.getPersonId();
 
         GroupCreateRequest groupCreateRequest = new GroupCreateRequest();
         groupName = randomAlphanumeric(20);
         groupCreateRequest.setGroupName(groupName);
-        GroupCreateResponse groupCreateResponse =zenoClient.execute(groupCreateRequest);
-        assertNotNull("group create fail",groupCreateResponse.getGroupId());
+        GroupCreateResponse groupCreateResponse = zenoClient.execute(groupCreateRequest);
+        assertNotNull("group create fail", groupCreateResponse.getGroupId());
         groupId = groupCreateResponse.getGroupId();
 
         FacesetCreateRequest facesetCreateRequest = new FacesetCreateRequest();
         facesetName = randomAlphanumeric(20);
         facesetCreateRequest.setFacesetName(facesetName);
         FacesetCreateResponse facesetCreateResponse = zenoClient.execute(facesetCreateRequest);
-        assertNotNull("faceset create fail",facesetCreateResponse.getFacesetId());
+        assertNotNull("faceset create fail", facesetCreateResponse.getFacesetId());
         facesetId = facesetCreateResponse.getFacesetId();
     }
 
@@ -67,6 +67,6 @@ public class CreateAndDeleteBaseTest extends FaceDetectTest{
         ImageDeleteRequest imageDeleteRequest = new ImageDeleteRequest();
         imageDeleteRequest.setImageId(imageId);
         ImageDeleteResponse imageDeleteResponse = zenoClient.execute(imageDeleteRequest);
-        assertEquals(true,imageDeleteResponse.isSuccess());
+        assertEquals(true, imageDeleteResponse.isSuccess());
     }
 }

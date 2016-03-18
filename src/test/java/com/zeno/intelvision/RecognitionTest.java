@@ -118,14 +118,14 @@ public class RecognitionTest extends CreateAndDeleteBaseTest {
         }
         RecognitionIdentifyResponse response = zenoClient.execute(request);
         assertNotNull(response.getRecognition().getRecognitionId());
-        assertEquals(personId,response.getRecognition().getPersonId());
+        assertEquals(personId, response.getRecognition().getPersonId());
     }
 
     @AfterClass
-    public static void deleteImage(){
+    public static void deleteImage() {
         ImageDeleteRequest request = new ImageDeleteRequest();
         request.setImageId(imageId2);
         ImageDeleteResponse response = zenoClient.execute(request);
-        assertEquals(true,response.isSuccess());
+        assertEquals(true, response.isSuccess());
     }
 }

@@ -11,7 +11,7 @@ public class PlatesetSearchPlateRequest extends ZenoRequest<PlatesetSearchPlateR
     @Param(name = "plateset_id")
     private String platesetId;
 
-    @Param(name="plate_number")
+    @Param(name = "plate_number")
     private String palteNumber;
 
     public String getPlatesetId() {
