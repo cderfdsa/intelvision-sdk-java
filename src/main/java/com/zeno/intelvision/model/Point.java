@@ -1,4 +1,4 @@
-package com.zeno.intelvision.response;
+package com.zeno.intelvision.model;
 
 /**
  * @author lan

@@ -1,6 +1,7 @@
 package com.zeno.intelvision.response;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.zeno.intelvision.model.Face;
 
 import java.util.List;
 

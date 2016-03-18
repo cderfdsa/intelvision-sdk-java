@@ -1,4 +1,4 @@
-package com.zeno.intelvision.response;
+package com.zeno.intelvision.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

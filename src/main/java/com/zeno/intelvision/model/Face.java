@@ -1,4 +1,4 @@
-package com.zeno.intelvision.response;
+package com.zeno.intelvision.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -9,11 +9,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Face {
 
     private String faceId;
+    private String personId;
     private String imageId;
     private Integer positionX;
     private Integer positionY;
     private Integer positionW;
     private Integer positionH;
+    private String tag;
     private Long addTime;
     private String appId;
 
@@ -87,5 +89,22 @@ public class Face {
 
     public void setAppId(String appId) {
         this.appId = appId;
+    }
+
+    @JsonProperty("person_id")
+    public String getPersonId() {
+        return personId;
+    }
+
+    public void setPersonId(String personId) {
+        this.personId = personId;
+    }
+
+    public String getTag() {
+        return tag;
+    }
+
+    public void setTag(String tag) {
+        this.tag = tag;
     }
 }
