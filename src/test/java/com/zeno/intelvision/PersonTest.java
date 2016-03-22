@@ -2,7 +2,10 @@ package com.zeno.intelvision;
 
 import com.zeno.intelvision.request.*;
 import com.zeno.intelvision.response.*;
-import org.junit.*;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
@@ -55,7 +58,7 @@ public class PersonTest extends CreateAndDeleteBaseTest {
         request.setPersonName(personName);
         request.setTag("test");
         request.setAge((int) (Math.random() * 90 + 10));
-        request.setGender((int) (Math.random() * 2 + 1));
+        request.setGender(String.valueOf((int) (Math.random() * 2 + 1)));
         request.setRace((int) (Math.random() * 3 + 1));
         PersonSetInfoResponse response = zenoClient.execute(request);
         assertNotNull(response.getPerson().getPersonId());

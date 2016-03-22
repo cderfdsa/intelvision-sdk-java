@@ -27,7 +27,7 @@ public class CreateAndDeleteBaseTest extends FaceDetectTest {
         personCreateRequest.setPersonName(personName);
         personCreateRequest.setAge((int) (Math.random() * 90 + 10));
         personCreateRequest.setRace((int) (Math.random() * 3 + 1));
-        personCreateRequest.setGender((int) (Math.random() * 2 + 1));
+        personCreateRequest.setGender(String.valueOf((int) (Math.random() * 2 + 1)));
         PersonCreateResponse personCreateResponse = zenoClient.execute(personCreateRequest);
         assertNotNull("person create fail", personCreateResponse.getPersonId());
         personId = personCreateResponse.getPersonId();

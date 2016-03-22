@@ -18,7 +18,7 @@ public class PersonCreateRequest extends ZenoRequest<PersonCreateResponse> {
     private Integer race;
 
     @Param(name = "gender")
-    private Integer gender;
+    private String gender;
 
     @Param(name = "tag")
     private String tag;
@@ -47,11 +47,11 @@ public class PersonCreateRequest extends ZenoRequest<PersonCreateResponse> {
         this.race = race;
     }
 
-    public Integer getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(Integer gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 
