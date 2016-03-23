@@ -8,7 +8,7 @@ import com.zeno.intelvision.response.VqdsAddImageResponse;
  */
 public class VqdsAddImageRequest extends ZenoRequest<VqdsAddImageResponse> {
 
-    @Param(name = "vqds_name")
+    @Param(name = "name")
     private String vqdsName;
 
     @Param(name = "vqds_id")
