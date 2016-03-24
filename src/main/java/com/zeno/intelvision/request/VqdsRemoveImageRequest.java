@@ -8,7 +8,7 @@ import com.zeno.intelvision.response.VqdsRemoveImageResponse;
  */
 public class VqdsRemoveImageRequest extends ZenoRequest<VqdsRemoveImageResponse> {
 
-    @Param(name = "vqds_name")
+    @Param(name = "name")
     private String vqdsName;
 
     @Param(name = "vqds_id")

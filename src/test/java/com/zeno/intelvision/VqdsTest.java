@@ -56,7 +56,7 @@ public class VqdsTest extends BaseTest {
     public void setInfo() {
         VqdsSetInfoRequest request = new VqdsSetInfoRequest();
         request.setVqdsId(vqdsId);
-        request.setName(randomAlphanumeric(20));
+        request.setNewName(randomAlphanumeric(20));
         request.setTag("test");
         VqdsSetInfoResponse response = zenoClient.execute(request);
         assertNotNull(response.getVqdsId());

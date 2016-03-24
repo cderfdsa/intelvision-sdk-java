@@ -8,14 +8,14 @@ import com.zeno.intelvision.response.VqdsSetInfoResponse;
  */
 public class VqdsSetInfoRequest extends ZenoRequest<VqdsSetInfoResponse> {
 
-    @Param(name = "vqds_name")
+    @Param(name = "name")
     private String vqdsName;
 
     @Param(name = "vqds_id")
     private String vqdsId;
 
-    @Param(name = "name")
-    private String name;
+    @Param(name = "new_name")
+    private String newName;
 
     @Param(name = "tag")
     private String tag;
@@ -36,12 +36,12 @@ public class VqdsSetInfoRequest extends ZenoRequest<VqdsSetInfoResponse> {
         this.vqdsId = vqdsId;
     }
 
-    public String getName() {
-        return name;
+    public String getNewName() {
+        return newName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNewName(String newName) {
+        this.newName = newName;
     }
 
     public String getTag() {

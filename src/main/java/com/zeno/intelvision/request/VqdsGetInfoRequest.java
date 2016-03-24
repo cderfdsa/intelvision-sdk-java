@@ -8,7 +8,7 @@ import com.zeno.intelvision.response.VqdsGetInfoResponse;
  */
 public class VqdsGetInfoRequest extends ZenoRequest<VqdsGetInfoResponse> {
 
-    @Param(name = "vqds_name")
+    @Param(name = "name")
     private String vqdsName;
 
     @Param(name = "vqds_id")
