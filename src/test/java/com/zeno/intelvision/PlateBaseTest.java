@@ -8,13 +8,13 @@ import com.zeno.intelvision.response.PlateDetectResponse;
 import com.zeno.intelvision.response.PlateInfoGetPlateResponse;
 import com.zeno.intelvision.response.PlatesetCreateResponse;
 import com.zeno.intelvision.response.PlatesetDeleteResponse;
+import com.zeno.intelvision.util.RandomString;
 import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
 import java.io.File;
 
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
@@ -43,7 +43,7 @@ public class PlateBaseTest extends BaseTest {
         }
 
         PlatesetCreateRequest platesetCreateRequest = new PlatesetCreateRequest();
-        platesetName = randomAlphanumeric(20);
+        platesetName = RandomString.getString(20);
         platesetCreateRequest.setPlatesetName(platesetName);
         PlatesetCreateResponse platesetCreateResponse = zenoClient.execute(platesetCreateRequest);
         assertNotNull(platesetCreateResponse.getPlatesetId());
