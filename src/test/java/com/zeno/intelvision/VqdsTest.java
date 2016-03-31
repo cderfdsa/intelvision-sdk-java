@@ -2,11 +2,11 @@ package com.zeno.intelvision;
 
 import com.zeno.intelvision.request.*;
 import com.zeno.intelvision.response.*;
+import com.zeno.intelvision.util.RandomString;
 import org.junit.*;
 
 import java.io.File;
 
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphanumeric;
 import static org.junit.Assert.*;
 
 /**
@@ -56,7 +56,7 @@ public class VqdsTest extends BaseTest {
     public void setInfo() {
         VqdsSetInfoRequest request = new VqdsSetInfoRequest();
         request.setVqdsId(vqdsId);
-        request.setNewName(randomAlphanumeric(20));
+        request.setNewName(RandomString.getString(20));
         request.setTag("test");
         VqdsSetInfoResponse response = zenoClient.execute(request);
         assertNotNull(response.getVqdsId());

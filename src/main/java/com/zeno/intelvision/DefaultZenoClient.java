@@ -6,26 +6,13 @@ import com.zeno.intelvision.http.HttpService;
 import com.zeno.intelvision.http.JsonMapper;
 import com.zeno.intelvision.request.ZenoRequest;
 import com.zeno.intelvision.response.ZenoResponse;
-import org.apache.http.HttpEntity;
-import org.apache.http.NameValuePair;
-import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.client.methods.HttpPost;
-import org.apache.http.entity.ContentType;
-import org.apache.http.entity.mime.MultipartEntityBuilder;
-import org.apache.http.entity.mime.content.FileBody;
-import org.apache.http.entity.mime.content.StringBody;
-import org.apache.http.message.BasicNameValuePair;
-import org.apache.http.util.EntityUtils;
 
 import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * @author lan
@@ -54,80 +41,55 @@ public class DefaultZenoClient implements ZenoClient {
             responseClass = (Class<T>) p[0];
         }
         Field[] fields = clazz.getDeclaredFields();
-        MultipartEntityBuilder builder = MultipartEntityBuilder.create();
-        boolean hasFile = false;
+        Map<String, File> files = new HashMap<String, File>();
+        Map<String, String> params = new HashMap<String, String>();
+        if (apiKey != null && !"".equals(apiKey) && apiSecret != null && !"".equals(apiSecret)) {
+            params.put("api_key", apiKey);
+            params.put("api_secret", apiSecret);
+        }
         for (Field field : fields) {
             field.setAccessible(true);
             BinFile binFile = field.getAnnotation(BinFile.class);
             if (binFile != null) {
                 try {
-                    FileBody img = new FileBody((File) field.get(request));
-                    builder.addPart(binFile.name(), img);
-                    hasFile = true;
+                    files.put(binFile.name(), (File) field.get(request));
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
-
             }
         }
-        HttpEntity entity = null;
-        if (hasFile) {
-            for (Field field : fields) {
-                Param param = field.getAnnotation(Param.class);
-                if (param != null) {
-                    try {
-                        Object o = field.get(request);
-                        if (o != null) {
-                            StringBody body = new StringBody(o.toString(), ContentType.create("text/plain", "UTF-8"));
-                            builder.addPart(param.name(), body);
-                        }
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (!files.isEmpty()) {
+            addParams(fields, params, request);
+            if (!params.isEmpty()) {
+                return JsonMapper.readValue(HttpService.getHttpService().postRequest(serviceUrl
+                        + request.getApi(), params, files), responseClass);
             }
-            StringBody key = new StringBody(apiKey, ContentType.create("text/plain", "UTF-8"));
-            builder.addPart("api_key", key);
-            StringBody secret = new StringBody(apiSecret, ContentType.create("text/plain", "UTF-8"));
-            builder.addPart("api_secret", secret);
-            entity = builder.build();
         } else {
-            List<NameValuePair> nvps = new ArrayList<NameValuePair>();
-            for (Field field : fields) {
-                field.setAccessible(true);
-                Param param = field.getAnnotation(Param.class);
-                if (param != null) {
-                    try {
-                        Object o = field.get(request);
-                        if (o != null) {
-                            nvps.add(new BasicNameValuePair(param.name(), o.toString()));
-                        }
-                    } catch (IllegalAccessException e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            nvps.add(new BasicNameValuePair("api_key", apiKey));
-            nvps.add(new BasicNameValuePair("api_secret", apiSecret));
-            try {
-                entity = new UrlEncodedFormEntity(nvps, "UTF-8");
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-        }
-        if (entity != null) {
-            HttpPost post = new HttpPost(serviceUrl + request.getApi());
-            post.setEntity(entity);
-            try {
-                CloseableHttpResponse response = HttpService.getHttpClient().execute(post);
-                HttpEntity resEntity = response.getEntity();
-                String result = EntityUtils.toString(resEntity);
-                return JsonMapper.readValue(result, responseClass);
-
-            } catch (IOException e) {
-                e.printStackTrace();
+            addParams(fields, params, request);
+            if (!params.isEmpty()) {
+                return JsonMapper.readValue(HttpService.getHttpService().getRequest(serviceUrl
+                        + request.getApi(), params), responseClass);
             }
         }
         return null;
+    }
+
+    private <T extends ZenoResponse> Map<String, String> addParams(Field[] fields, Map<String,
+            String> params, ZenoRequest<T> request) {
+        for (Field field : fields) {
+            field.setAccessible(true);
+            Param param = field.getAnnotation(Param.class);
+            if (param != null) {
+                try {
+                    Object o = field.get(request);
+                    if (o != null) {
+                        params.put(param.name(), o.toString());
+                    }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return params;
     }
 }
