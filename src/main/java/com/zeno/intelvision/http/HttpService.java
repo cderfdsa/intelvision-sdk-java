@@ -51,7 +51,6 @@ public class HttpService {
             httpsUrl.setUseCaches(false);
             httpsUrl.setConnectTimeout(TIME_OUT);
             httpsUrl.setReadTimeout(TIME_OUT);
-            httpsUrl.setRequestProperty("connection", "keep-alive");
             httpsUrl.setRequestProperty("Charset", CHARSET);
         } catch (MalformedURLException e) {
             e.printStackTrace();
