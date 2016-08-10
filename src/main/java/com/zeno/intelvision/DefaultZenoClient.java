@@ -2,7 +2,7 @@ package com.zeno.intelvision;
 
 import com.zeno.intelvision.annotation.BinFile;
 import com.zeno.intelvision.annotation.Param;
-import com.zeno.intelvision.http.HttpService;
+import com.zeno.intelvision.http.HttpsService;
 import com.zeno.intelvision.http.JsonMapper;
 import com.zeno.intelvision.request.ZenoRequest;
 import com.zeno.intelvision.response.ZenoResponse;
@@ -61,13 +61,13 @@ public class DefaultZenoClient implements ZenoClient {
         if (!files.isEmpty()) {
             addParams(fields, params, request);
             if (!params.isEmpty()) {
-                return JsonMapper.readValue(HttpService.getHttpService().postRequest(serviceUrl
+                return JsonMapper.readValue(HttpsService.getHttpService().postRequest(serviceUrl
                         + request.getApi(), params, files), responseClass);
             }
         } else {
             addParams(fields, params, request);
             if (!params.isEmpty()) {
-                return JsonMapper.readValue(HttpService.getHttpService().getRequest(serviceUrl
+                return JsonMapper.readValue(HttpsService.getHttpService().getRequest(serviceUrl
                         + request.getApi(), params), responseClass);
             }
         }

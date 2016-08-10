@@ -1,7 +1,16 @@
 package com.zeno.intelvision.http;
 
+import javax.net.ssl.*;
 import java.io.*;
-import java.net.*;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.security.KeyManagementException;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.security.cert.CertificateException;
+import java.security.cert.X509Certificate;
 import java.util.Map;
 import java.util.UUID;
 
@@ -9,7 +18,7 @@ import java.util.UUID;
  * @author Ma
  * @since 2016-03-30
  */
-public class HttpService {
+public class HttpsService {
 
     private static final String PREFIX = "--";
     private static final String LINE_END = "\r\n";
@@ -17,41 +26,52 @@ public class HttpService {
     private static final int TIME_OUT = 30000;
     private static final String CHARSET = "UTF-8";
 
-    private static final HttpService httpService = new HttpService();
+    private static final HttpsService httpService = new HttpsService();
 
-    private HttpService() {
+    private HttpsService() {
     }
 
-    public static HttpService getHttpService() {
+    public static HttpsService getHttpService() {
         return httpService;
     }
 
 
-    private HttpURLConnection getHttpURLConnection(String urlStr) {
-        HttpURLConnection httpUrl = null;
+    private HttpsURLConnection getHttpsURLConnection(String urlStr) {
+        HttpsURLConnection httpsUrl = null;
+        TrustManager[] tm = {new MyX509TrustManager()};
         try {
             URL url = new URL(urlStr);
-            httpUrl = (HttpURLConnection) url.openConnection();
-            httpUrl.setDoInput(true);
-            httpUrl.setDoOutput(true);
-            httpUrl.setUseCaches(false);
-            httpUrl.setConnectTimeout(TIME_OUT);
-            httpUrl.setReadTimeout(TIME_OUT);
-            httpUrl.setRequestProperty("Charset", CHARSET);
+            httpsUrl = (HttpsURLConnection) url.openConnection();
+            SSLContext sslContext = SSLContext.getInstance("SSL", "SunJSSE");
+            sslContext.init(null, tm, new java.security.SecureRandom());
+            SSLSocketFactory ssf = sslContext.getSocketFactory();
+            httpsUrl.setSSLSocketFactory(ssf);
+            httpsUrl.setDoInput(true);
+            httpsUrl.setDoOutput(true);
+            httpsUrl.setUseCaches(false);
+            httpsUrl.setConnectTimeout(TIME_OUT);
+            httpsUrl.setReadTimeout(TIME_OUT);
+            httpsUrl.setRequestProperty("Charset", CHARSET);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (NoSuchProviderException e) {
+            e.printStackTrace();
+        } catch (KeyManagementException e) {
+            e.printStackTrace();
         }
-        return httpUrl;
+        return httpsUrl;
     }
 
     public String getRequest(String url, Map<String, String> params) {
         OutputStreamWriter out = null;
-        HttpURLConnection httpUrl = getHttpURLConnection(url);
+        HttpsURLConnection httpsUrl = getHttpsURLConnection(url);
         try {
-            httpUrl.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-            httpUrl.setRequestMethod("GET");
+            httpsUrl.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            httpsUrl.setRequestMethod("GET");
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 if (!"".equals(sb.toString())) {
@@ -60,10 +80,10 @@ public class HttpService {
                 sb.append(entry.getKey()).append("=")
                         .append(URLEncoder.encode(entry.getValue(), "UTF-8"));
             }
-            out = new OutputStreamWriter(httpUrl.getOutputStream());
+            out = new OutputStreamWriter(httpsUrl.getOutputStream());
             out.write(sb.toString());
             out.flush();
-            return getResult(httpUrl);
+            return getResult(httpsUrl);
         } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
@@ -78,7 +98,7 @@ public class HttpService {
                     e.printStackTrace();
                 }
             }
-            httpUrl.disconnect();
+            httpsUrl.disconnect();
         }
         return "";
     }
@@ -87,10 +107,10 @@ public class HttpService {
         String boundary = UUID.randomUUID().toString();
         DataOutputStream out = null;
         InputStream is = null;
-        HttpURLConnection httpUrl = getHttpURLConnection(url);
+        HttpsURLConnection httpsUrl = getHttpsURLConnection(url);
         try {
-            httpUrl.setRequestProperty("Content-Type", MULTIPART_FROM_DATA + ";boundary=" + boundary);
-            httpUrl.setRequestMethod("POST");
+            httpsUrl.setRequestProperty("Content-Type", MULTIPART_FROM_DATA + ";boundary=" + boundary);
+            httpsUrl.setRequestMethod("POST");
             StringBuilder sb = new StringBuilder();
             for (Map.Entry<String, String> entry : params.entrySet()) {
                 sb.append(PREFIX);
@@ -104,7 +124,7 @@ public class HttpService {
                 sb.append(entry.getValue());
                 sb.append(LINE_END);
             }
-            out = new DataOutputStream(httpUrl.getOutputStream());
+            out = new DataOutputStream(httpsUrl.getOutputStream());
             out.write(sb.toString().getBytes(CHARSET));
             for (Map.Entry<String, File> file : files.entrySet()) {
                 sb = new StringBuilder();
@@ -128,7 +148,7 @@ public class HttpService {
             }
             out.write((PREFIX + boundary + PREFIX + LINE_END).getBytes());
             out.flush();
-            return getResult(httpUrl);
+            return getResult(httpsUrl);
         } catch (ProtocolException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -148,15 +168,15 @@ public class HttpService {
                     e.printStackTrace();
                 }
             }
-            httpUrl.disconnect();
+            httpsUrl.disconnect();
         }
         return "";
     }
 
-    private String getResult(HttpURLConnection httpUrl) {
+    private String getResult(HttpsURLConnection httpsUrl) {
         BufferedReader br = null;
         try {
-            br = new BufferedReader(new InputStreamReader(httpUrl.getInputStream(), CHARSET));
+            br = new BufferedReader(new InputStreamReader(httpsUrl.getInputStream(), CHARSET));
             String line;
             StringBuilder sb = new StringBuilder();
             while ((line = br.readLine()) != null) {
@@ -175,5 +195,23 @@ public class HttpService {
             }
         }
         return "";
+    }
+
+    class MyX509TrustManager implements X509TrustManager {
+
+        @Override
+        public void checkClientTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+
+        }
+
+        @Override
+        public void checkServerTrusted(X509Certificate[] x509Certificates, String s) throws CertificateException {
+
+        }
+
+        @Override
+        public X509Certificate[] getAcceptedIssuers() {
+            return null;
+        }
     }
 }
