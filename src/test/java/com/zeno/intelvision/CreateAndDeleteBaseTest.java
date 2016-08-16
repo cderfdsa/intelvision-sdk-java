@@ -67,6 +67,6 @@ public class CreateAndDeleteBaseTest extends FaceDetectTest {
         ImageDeleteRequest imageDeleteRequest = new ImageDeleteRequest();
         imageDeleteRequest.setImageId(imageId);
         ImageDeleteResponse imageDeleteResponse = zenoClient.execute(imageDeleteRequest);
-//        assertEquals(true, imageDeleteResponse.isSuccess());
+        assertEquals(true, imageDeleteResponse.isSuccess());
     }
 }

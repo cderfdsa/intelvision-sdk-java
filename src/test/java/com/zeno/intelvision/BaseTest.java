@@ -12,6 +12,6 @@ public class BaseTest {
 
     @BeforeClass
     public static void beforeClass() {
-        zenoClient = new DefaultZenoClient("testKey", "testSecret", "https://www.intelvision.cn/api");
+        zenoClient = new DefaultZenoClient("e25e2c4b21014b429fe0e0f9d9dcb165", "d03cde73499e4e0e96825ac88dfb2118", "https://www.intelvision.cn/api");
     }
 }

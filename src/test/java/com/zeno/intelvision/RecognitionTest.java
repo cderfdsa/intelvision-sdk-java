@@ -121,6 +121,45 @@ public class RecognitionTest extends CreateAndDeleteBaseTest {
         assertEquals(personId, response.getRecognition().getPersonId());
     }
 
+    @Test
+    public void detectSearch() {
+        DetectSearchRequest request = new DetectSearchRequest();
+        request.setFacesetId(facesetId);
+        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        File file = new File(path, "jordan.jpg");
+        if (file.exists()) {
+            request.setImg(file);
+            DetectSearchResponse response = zenoClient.execute(request);
+            assertNotNull(response.getRecognition().getRecognitionId());
+        }
+    }
+
+    @Test
+    public void detectVerify() {
+        DetectVerifyRequest request = new DetectVerifyRequest();
+        request.setPersonId(personId);
+        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        File file = new File(path, "jordan.jpg");
+        if (file.exists()) {
+            request.setImg(file);
+            DetectVerifyResponse response = zenoClient.execute(request);
+            assertNotNull(response.getRecognition().getRecognitionId());
+        }
+    }
+
+    @Test
+    public void detectIdentify() {
+        DetectIdentifyRequest request = new DetectIdentifyRequest();
+        request.setGroupId(groupId);
+        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        File file = new File(path, "jordan.jpg");
+        if (file.exists()) {
+            request.setImg(file);
+            DetectIdentifyResponse response = zenoClient.execute(request);
+            assertNotNull(response.getRecognition().getRecognitionId());
+        }
+    }
+
     @AfterClass
     public static void deleteImage() {
         ImageDeleteRequest request = new ImageDeleteRequest();
