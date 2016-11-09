@@ -2,8 +2,6 @@ package com.zeno.intelvision.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
-
 /**
  * Created by pc on 2015/12/10.
  */
@@ -11,9 +9,8 @@ public class Group {
     private String groupId;
     private String groupName;
     private String tag;
+    private Long addTime;
     private String appId;
-    private Date addTime;
-    private String ufaceId;
 
     @JsonProperty("group_id")
     public String getGroupId() {
@@ -41,6 +38,15 @@ public class Group {
         this.tag = tag;
     }
 
+    @JsonProperty("add_time")
+    public Long getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(Long addTime) {
+        this.addTime = addTime;
+    }
+
     @JsonProperty("app_id")
     public String getAppId() {
         return appId;
@@ -50,20 +56,4 @@ public class Group {
         this.appId = appId;
     }
 
-    @JsonProperty("add_time")
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
-
-    public String getUfaceId() {
-        return ufaceId;
-    }
-
-    public void setUfaceId(String ufaceId) {
-        this.ufaceId = ufaceId;
-    }
 }

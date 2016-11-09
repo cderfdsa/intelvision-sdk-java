@@ -21,9 +21,6 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
     @Param(name = "tag")
     private String tag;
 
-    @Param(name = "store")
-    private Boolean store = true;
-
     public File getImg() {
         return img;
     }
@@ -46,14 +43,6 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
 
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public Boolean isStore() {
-        return store;
-    }
-
-    public void setStore(Boolean store) {
-        this.store = store;
     }
 
     @Override

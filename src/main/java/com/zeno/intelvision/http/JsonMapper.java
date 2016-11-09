@@ -1,7 +1,6 @@
 package com.zeno.intelvision.http;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
@@ -12,7 +11,7 @@ import java.io.IOException;
  * @author lan
  * @since 2015-08-12
  */
-public class JsonMapper {
+public final class JsonMapper {
 
     private static final ObjectMapper mapper = new ObjectMapper();
 
@@ -30,18 +29,6 @@ public class JsonMapper {
         if (json != null && !"".equals(json)) {
             try {
                 t = mapper.readValue(json, clazz);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-        return t;
-    }
-
-    public static <T> T readValue(String json, TypeReference valueTypeRef) {
-        T t = null;
-        if (json != null && !"".equals(json)) {
-            try {
-                t = mapper.readValue(json, valueTypeRef);
             } catch (IOException e) {
                 e.printStackTrace();
             }

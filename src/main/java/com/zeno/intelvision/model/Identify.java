@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Identify {
 
     private String personId;
-    private Double confidence;
+    private Float confidence;
     private String personName;
     private String recognitionId;
 
@@ -22,11 +22,11 @@ public class Identify {
         this.personId = personId;
     }
 
-    public Double getConfidence() {
+    public Float getConfidence() {
         return confidence;
     }
 
-    public void setConfidence(Double confidence) {
+    public void setConfidence(Float confidence) {
         this.confidence = confidence;
     }
 

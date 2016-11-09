@@ -2,8 +2,6 @@ package com.zeno.intelvision.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
-
 /**
  * @author lan
  * @since 2015-01-21
@@ -19,8 +17,7 @@ public class Person {
     private Integer race;
     private Integer age;
     private String address;
-    private Date addTime;
-    private String ufaceId;
+    private Long addTime;
 
     @JsonProperty("person_name")
     public String getPersonName() {
@@ -100,19 +97,11 @@ public class Person {
     }
 
     @JsonProperty("add_time")
-    public Date getAddTime() {
+    public Long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Date addTime) {
+    public void setAddTime(Long addTime) {
         this.addTime = addTime;
-    }
-
-    public String getUfaceId() {
-        return ufaceId;
-    }
-
-    public void setUfaceId(String ufaceId) {
-        this.ufaceId = ufaceId;
     }
 }

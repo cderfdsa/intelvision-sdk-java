@@ -2,8 +2,6 @@ package com.zeno.intelvision.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-import java.util.Date;
-
 /**
  * Created by ma on 2016/2/17.
  */
@@ -12,8 +10,8 @@ public class Plateset {
     private String platesetId;
     private String platesetName;
     private String tag;
+    private Long addTime;
     private String appId;
-    private Date addTime;
 
     @JsonProperty("plateset_name")
     public String getPlatesetName() {
@@ -33,11 +31,11 @@ public class Plateset {
     }
 
     @JsonProperty("add_time")
-    public Date getAddTime() {
+    public Long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Date addTime) {
+    public void setAddTime(Long addTime) {
         this.addTime = addTime;
     }
 

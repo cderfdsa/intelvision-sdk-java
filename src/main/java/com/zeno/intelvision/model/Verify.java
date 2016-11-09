@@ -8,7 +8,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Verify {
 
     private boolean same;
-    private Double confidence;
+    private Float confidence;
     private String recognitionId;
 
     public boolean isSame() {
@@ -19,11 +19,11 @@ public class Verify {
         this.same = same;
     }
 
-    public Double getConfidence() {
+    public Float getConfidence() {
         return confidence;
     }
 
-    public void setConfidence(Double confidence) {
+    public void setConfidence(Float confidence) {
         this.confidence = confidence;
     }
 

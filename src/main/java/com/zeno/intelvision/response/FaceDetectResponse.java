@@ -13,8 +13,8 @@ public class FaceDetectResponse extends ZenoResponse {
 
     private String detectionId;
     private String imageId;
-    private String imageWidth;
-    private String imageHeight;
+    private Integer imageWidth;
+    private Integer imageHeight;
     private String tag;
     private String url;
     private List<Face> faces;
@@ -38,20 +38,20 @@ public class FaceDetectResponse extends ZenoResponse {
     }
 
     @JsonProperty("img_width")
-    public String getImageWidth() {
+    public Integer getImageWidth() {
         return imageWidth;
     }
 
-    public void setImageWidth(String imageWidth) {
+    public void setImageWidth(Integer imageWidth) {
         this.imageWidth = imageWidth;
     }
 
     @JsonProperty("img_height")
-    public String getImageHeight() {
+    public Integer getImageHeight() {
         return imageHeight;
     }
 
-    public void setImageHeight(String imageHeight) {
+    public void setImageHeight(Integer imageHeight) {
         this.imageHeight = imageHeight;
     }
 
