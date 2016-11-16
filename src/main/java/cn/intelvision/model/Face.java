@@ -16,7 +16,7 @@ public class Face {
     private Integer positionW;
     private Integer positionH;
     private String tag;
-    private Long addTime;
+    private long addTime;
     private String appId;
 
     @JsonProperty("face_id")

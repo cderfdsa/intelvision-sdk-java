@@ -1,12 +1,14 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.FacesetFacesResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.FacesetGetInfoResponse;
+
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class FacesetFacesRequest extends ZenoRequest<FacesetFacesResponse> {
+public class FacesetGetInfoRequest extends ZenoRequest<FacesetGetInfoResponse> {
 
     @Param(name = "faceset_id")
     private String facesetId;
@@ -21,6 +23,6 @@ public class FacesetFacesRequest extends ZenoRequest<FacesetFacesResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/faceset/faces";
+        return "/v2/faceset/get_info";
     }
 }

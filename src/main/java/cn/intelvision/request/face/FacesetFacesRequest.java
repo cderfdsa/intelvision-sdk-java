@@ -1,12 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.FacesetDeleteResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.FacesetFacesResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class FacesetDeleteRequest extends ZenoRequest<FacesetDeleteResponse> {
+public class FacesetFacesRequest extends ZenoRequest<FacesetFacesResponse> {
 
     @Param(name = "faceset_id")
     private String facesetId;
@@ -21,6 +22,6 @@ public class FacesetDeleteRequest extends ZenoRequest<FacesetDeleteResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/faceset/delete";
+        return "/v2/faceset/faces";
     }
 }

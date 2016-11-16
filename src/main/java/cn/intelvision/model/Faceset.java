@@ -11,7 +11,7 @@ public class Faceset {
     private String facesetName;
     private String facesetId;
     private String tag;
-    private Long addTime;
+    private long addTime;
     private String appId;
 
     @JsonProperty("faceset_name")
@@ -41,11 +41,11 @@ public class Faceset {
     }
 
     @JsonProperty("add_time")
-    public Long getAddTime() {
+    public long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Long addTime) {
+    public void setAddTime(long addTime) {
         this.addTime = addTime;
     }
 

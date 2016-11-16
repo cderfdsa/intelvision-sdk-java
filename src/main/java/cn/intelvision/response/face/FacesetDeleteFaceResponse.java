@@ -1,11 +1,13 @@
-package cn.intelvision.response;
+package cn.intelvision.response.face;
+
+import cn.intelvision.response.ZenoResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
 public class FacesetDeleteFaceResponse extends ZenoResponse {
     private boolean success;
-    private Integer deleted;
+    private int deleted;
 
     public boolean isSuccess() {
         return success;
@@ -15,11 +17,11 @@ public class FacesetDeleteFaceResponse extends ZenoResponse {
         this.success = success;
     }
 
-    public Integer getDeleted() {
+    public int getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Integer deleted) {
+    public void setDeleted(int deleted) {
         this.deleted = deleted;
     }
 }
