@@ -1,8 +1,8 @@
 package cn.intelvision;
 
 import cn.intelvision.model.Vehicle;
-import cn.intelvision.request.*;
-import cn.intelvision.response.*;
+import cn.intelvision.request.vehicle.*;
+import cn.intelvision.response.vehicle.*;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
