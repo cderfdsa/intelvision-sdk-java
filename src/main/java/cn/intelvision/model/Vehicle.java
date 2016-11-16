@@ -22,6 +22,8 @@ public class Vehicle {
 
     private String plaNumber;
 
+    private long addTime;
+
     @JsonProperty("vehicle_id")
     public String getVehicleId() {
         return vehicleId;
@@ -82,5 +84,14 @@ public class Vehicle {
 
     public void setPlaNumber(String plaNumber) {
         this.plaNumber = plaNumber;
+    }
+
+    @JsonProperty("add_time")
+    public long getAddTime() {
+        return addTime;
+    }
+
+    public void setAddTime(long addTime) {
+        this.addTime = addTime;
     }
 }
