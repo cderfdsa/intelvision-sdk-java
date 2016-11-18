@@ -1,15 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.PersonSetInfoResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.PersonCreateResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class PersonSetInfoRequest extends ZenoRequest<PersonSetInfoResponse> {
-
-    @Param(name = "person_id")
-    private String personId;
+public class PersonCreateRequest extends ZenoRequest<PersonCreateResponse> {
 
     @Param(name = "person_name")
     private String personName;
@@ -26,13 +24,11 @@ public class PersonSetInfoRequest extends ZenoRequest<PersonSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getPersonId() {
-        return personId;
-    }
+    @Param(name = "birthday")
+    private String birthday;
 
-    public void setPersonId(String personId) {
-        this.personId = personId;
-    }
+    @Param(name = "remark")
+    private String remark;
 
     public String getPersonName() {
         return personName;
@@ -74,8 +70,24 @@ public class PersonSetInfoRequest extends ZenoRequest<PersonSetInfoResponse> {
         this.tag = tag;
     }
 
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
+    }
+
     @Override
     public String getApi() {
-        return "/v2/person/set_info";
+        return "/v2/person/create";
     }
 }

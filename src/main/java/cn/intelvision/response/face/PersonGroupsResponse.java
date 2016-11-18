@@ -1,6 +1,7 @@
-package cn.intelvision.response;
+package cn.intelvision.response.face;
 
 import cn.intelvision.model.Group;
+import cn.intelvision.response.ZenoResponse;
 
 import java.util.List;
 

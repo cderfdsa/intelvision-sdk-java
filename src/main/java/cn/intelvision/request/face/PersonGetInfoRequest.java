@@ -1,12 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.PersonDeleteResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.PersonGetInfoResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class PersonDeleteRequest extends ZenoRequest<PersonDeleteResponse> {
+public class PersonGetInfoRequest extends ZenoRequest<PersonGetInfoResponse> {
 
     @Param(name = "person_id")
     private String personId;
@@ -21,6 +22,6 @@ public class PersonDeleteRequest extends ZenoRequest<PersonDeleteResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/person/delete";
+        return "/v2/person/get_info";
     }
 }

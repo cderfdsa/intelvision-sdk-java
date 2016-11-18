@@ -1,19 +1,19 @@
-package cn.intelvision.response;
+package cn.intelvision.response.face;
 
 /**
  * Created by pc on 2016/3/16.
  */
 public class PersonDeleteFaceResponse extends PersonDeleteResponse {
     private boolean success;
-    private Integer deleted;
+    private int deleted;
 
     @Override
-    public Integer getDeleted() {
+    public int getDeleted() {
         return deleted;
     }
 
     @Override
-    public void setDeleted(Integer deleted) {
+    public void setDeleted(int deleted) {
         this.deleted = deleted;
     }
 

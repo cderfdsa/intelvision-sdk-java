@@ -1,7 +1,8 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.PersonGroupsResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.PersonGroupsResponse;
 
 /**
  * Created by pc on 2016/3/16.

@@ -17,7 +17,9 @@ public class Person {
     private Integer race;
     private Integer age;
     private String address;
-    private Long addTime;
+    private String birthday;
+    private String remark;
+    private long addTime;
 
     @JsonProperty("person_name")
     public String getPersonName() {
@@ -97,11 +99,27 @@ public class Person {
     }
 
     @JsonProperty("add_time")
-    public Long getAddTime() {
+    public long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Long addTime) {
+    public void setAddTime(long addTime) {
         this.addTime = addTime;
+    }
+
+    public String getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(String birthday) {
+        this.birthday = birthday;
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }
