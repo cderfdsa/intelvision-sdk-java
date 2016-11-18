@@ -1,12 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.GroupGetInfoResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.GroupPersonsResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class GroupGetInfoRequest extends ZenoRequest<GroupGetInfoResponse> {
+public class GroupPersonsRequest extends ZenoRequest<GroupPersonsResponse> {
 
     @Param(name = "group_id")
     private String groupId;
@@ -21,6 +22,6 @@ public class GroupGetInfoRequest extends ZenoRequest<GroupGetInfoResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/group/get_info";
+        return "/v2/group/persons";
     }
 }

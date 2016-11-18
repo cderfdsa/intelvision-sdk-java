@@ -115,6 +115,9 @@ public class PersonTest extends BaseTest {
         assertEquals(1, response.getDeleted());
     }
 
+    /**
+     * @see GroupTest#test6Groups()
+     */
     @Test
     public void test7Groups() {
         PersonGroupsRequest request = new PersonGroupsRequest();

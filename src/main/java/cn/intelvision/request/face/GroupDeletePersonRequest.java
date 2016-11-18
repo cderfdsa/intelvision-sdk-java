@@ -1,12 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.GroupAddPersonResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.GroupDeletePersonResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class GroupAddPersonRequest extends ZenoRequest<GroupAddPersonResponse> {
+public class GroupDeletePersonRequest extends ZenoRequest<GroupDeletePersonResponse> {
 
     @Param(name = "group_id")
     private String groupId;
@@ -32,6 +33,6 @@ public class GroupAddPersonRequest extends ZenoRequest<GroupAddPersonResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/group/add_person";
+        return "/v2/group/delete_person";
     }
 }

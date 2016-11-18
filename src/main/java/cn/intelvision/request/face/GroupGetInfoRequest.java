@@ -1,12 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.GroupDeleteResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.GroupGetInfoResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class GroupDeleteRequest extends ZenoRequest<GroupDeleteResponse> {
+public class GroupGetInfoRequest extends ZenoRequest<GroupGetInfoResponse> {
 
     @Param(name = "group_id")
     private String groupId;
@@ -21,6 +22,6 @@ public class GroupDeleteRequest extends ZenoRequest<GroupDeleteResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/group/delete";
+        return "/v2/group/get_info";
     }
 }

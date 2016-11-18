@@ -9,7 +9,7 @@ public class Group {
     private String groupId;
     private String groupName;
     private String tag;
-    private Long addTime;
+    private long addTime;
     private String appId;
 
     @JsonProperty("group_id")
@@ -39,11 +39,11 @@ public class Group {
     }
 
     @JsonProperty("add_time")
-    public Long getAddTime() {
+    public long getAddTime() {
         return addTime;
     }
 
-    public void setAddTime(Long addTime) {
+    public void setAddTime(long addTime) {
         this.addTime = addTime;
     }
 

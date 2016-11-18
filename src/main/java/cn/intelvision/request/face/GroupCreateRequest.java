@@ -1,28 +1,19 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.GroupSetInfoResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.GroupCreateResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class GroupSetInfoRequest extends ZenoRequest<GroupSetInfoResponse> {
-    @Param(name = "group_id")
-    private String groupId;
+public class GroupCreateRequest extends ZenoRequest<GroupCreateResponse> {
 
     @Param(name = "group_name")
     private String groupName;
 
     @Param(name = "tag")
     private String tag;
-
-    public String getGroupId() {
-        return groupId;
-    }
-
-    public void setGroupId(String groupId) {
-        this.groupId = groupId;
-    }
 
     public String getGroupName() {
         return groupName;
@@ -42,6 +33,6 @@ public class GroupSetInfoRequest extends ZenoRequest<GroupSetInfoResponse> {
 
     @Override
     public String getApi() {
-        return "/v2/group/set_info";
+        return "/v2/group/create";
     }
 }
