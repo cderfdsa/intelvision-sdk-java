@@ -1,12 +1,13 @@
-package cn.intelvision.request;
+package cn.intelvision.request.vqds;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.VqdsRemoveImageResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.vqds.VqdsAddImageResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class VqdsRemoveImageRequest extends ZenoRequest<VqdsRemoveImageResponse> {
+public class VqdsAddImageRequest extends ZenoRequest<VqdsAddImageResponse> {
 
     @Param(name = "name")
     private String vqdsName;
@@ -43,6 +44,6 @@ public class VqdsRemoveImageRequest extends ZenoRequest<VqdsRemoveImageResponse>
 
     @Override
     public String getApi() {
-        return "/vqds/remove_image";
+        return "/vqds/add_image";
     }
 }

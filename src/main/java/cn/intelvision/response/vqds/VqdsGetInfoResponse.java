@@ -1,6 +1,7 @@
-package cn.intelvision.response;
+package cn.intelvision.response.vqds;
 
 import cn.intelvision.model.Image;
+import cn.intelvision.response.ZenoResponse;
 
 import java.util.List;
 

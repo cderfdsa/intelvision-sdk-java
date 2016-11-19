@@ -1,7 +1,8 @@
-package cn.intelvision.request;
+package cn.intelvision.request.vqds;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.VqdsSetInfoResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.vqds.VqdsSetInfoResponse;
 
 /**
  * Created by pc on 2016/3/16.

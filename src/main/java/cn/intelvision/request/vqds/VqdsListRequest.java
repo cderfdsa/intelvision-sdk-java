@@ -1,6 +1,7 @@
-package cn.intelvision.request;
+package cn.intelvision.request.vqds;
 
-import cn.intelvision.response.VqdsListResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.vqds.VqdsListResponse;
 
 /**
  * Created by pc on 2016/3/16.

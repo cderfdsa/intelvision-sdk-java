@@ -1,11 +1,13 @@
-package cn.intelvision.response;
+package cn.intelvision.response.vqds;
+
+import cn.intelvision.response.ZenoResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
 public class VqdsRemoveImageResponse extends ZenoResponse {
     private boolean success;
-    private Integer removed;
+    private int removed;
 
     public boolean isSuccess() {
         return success;
@@ -15,11 +17,11 @@ public class VqdsRemoveImageResponse extends ZenoResponse {
         this.success = success;
     }
 
-    public Integer getRemoved() {
+    public int getRemoved() {
         return removed;
     }
 
-    public void setRemoved(Integer removed) {
+    public void setRemoved(int removed) {
         this.removed = removed;
     }
 }

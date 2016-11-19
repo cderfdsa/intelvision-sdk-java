@@ -1,21 +1,19 @@
-package cn.intelvision.request;
+package cn.intelvision.request.vqds;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.VqdsAddImageResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.vqds.VqdsGetInfoResponse;
 
 /**
  * Created by pc on 2016/3/16.
  */
-public class VqdsAddImageRequest extends ZenoRequest<VqdsAddImageResponse> {
+public class VqdsGetInfoRequest extends ZenoRequest<VqdsGetInfoResponse> {
 
     @Param(name = "name")
     private String vqdsName;
 
     @Param(name = "vqds_id")
     private String vqdsId;
-
-    @Param(name = "image_ids")
-    private String imageIds;
 
     public String getVqdsName() {
         return vqdsName;
@@ -33,16 +31,8 @@ public class VqdsAddImageRequest extends ZenoRequest<VqdsAddImageResponse> {
         this.vqdsId = vqdsId;
     }
 
-    public String getImageIds() {
-        return imageIds;
-    }
-
-    public void setImageIds(String imageIds) {
-        this.imageIds = imageIds;
-    }
-
     @Override
     public String getApi() {
-        return "/vqds/add_image";
+        return "/vqds/get_info";
     }
 }

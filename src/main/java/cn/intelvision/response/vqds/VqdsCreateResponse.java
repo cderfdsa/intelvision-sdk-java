@@ -1,5 +1,6 @@
-package cn.intelvision.response;
+package cn.intelvision.response.vqds;
 
+import cn.intelvision.response.ZenoResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**

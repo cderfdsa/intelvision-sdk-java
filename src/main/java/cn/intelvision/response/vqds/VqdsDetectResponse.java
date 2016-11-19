@@ -1,28 +1,29 @@
-package cn.intelvision.response;
+package cn.intelvision.response.vqds;
 
+import cn.intelvision.response.ZenoResponse;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 /**
  * Created by pc on 2016/3/16.
  */
 public class VqdsDetectResponse extends ZenoResponse {
-    private Integer shift;
-    private Integer blur;
+    private int shift;
+    private int blur;
     private String colorCast;
 
-    public Integer getShift() {
+    public int getShift() {
         return shift;
     }
 
-    public void setShift(Integer shift) {
+    public void setShift(int shift) {
         this.shift = shift;
     }
 
-    public Integer getBlur() {
+    public int getBlur() {
         return blur;
     }
 
-    public void setBlur(Integer blur) {
+    public void setBlur(int blur) {
         this.blur = blur;
     }
 

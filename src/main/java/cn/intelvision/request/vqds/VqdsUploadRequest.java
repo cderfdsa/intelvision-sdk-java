@@ -1,8 +1,9 @@
-package cn.intelvision.request;
+package cn.intelvision.request.vqds;
 
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.BinFile;
-import cn.intelvision.response.VqdsUploadResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.vqds.VqdsUploadResponse;
 
 import java.io.File;
 
