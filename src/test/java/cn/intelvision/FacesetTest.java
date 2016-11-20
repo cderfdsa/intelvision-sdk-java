@@ -2,9 +2,9 @@ package cn.intelvision;
 
 import cn.intelvision.model.Face;
 import cn.intelvision.model.Faceset;
-import cn.intelvision.request.FaceDetectRequest;
+import cn.intelvision.request.face.FaceDetectRequest;
 import cn.intelvision.request.face.*;
-import cn.intelvision.response.FaceDetectResponse;
+import cn.intelvision.response.face.FaceDetectResponse;
 import cn.intelvision.response.face.*;
 import org.junit.Assert;
 import org.junit.BeforeClass;
@@ -32,7 +32,7 @@ public class FacesetTest extends BaseTest {
     public static void beforeClass() {
         BaseTest.beforeClass();
         FaceDetectRequest request = new FaceDetectRequest();
-        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        String path = FacesetTest.class.getClassLoader().getResource(".").getPath();
         File file = new File(path, "jordan.jpg");
         request.setImg(file);
         FaceDetectResponse response = zenoClient.execute(request);

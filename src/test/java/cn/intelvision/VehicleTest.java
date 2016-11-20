@@ -32,7 +32,7 @@ public class VehicleTest extends BaseTest {
     public static void beforeClass() {
         BaseTest.beforeClass();
         PlateDetectRequest request = new PlateDetectRequest();
-        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        String path = VehicleTest.class.getClassLoader().getResource(".").getPath();
         File file = new File(path, "Benz.jpg");
         assertTrue("image is not exists.", file.exists());
         request.setImg(file);

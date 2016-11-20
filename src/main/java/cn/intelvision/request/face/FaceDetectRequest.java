@@ -1,8 +1,9 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.FaceDetectResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.FaceDetectResponse;
 
 import java.io.File;
 

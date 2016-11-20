@@ -3,9 +3,7 @@ package cn.intelvision;
 import cn.intelvision.model.Face;
 import cn.intelvision.model.Group;
 import cn.intelvision.model.Person;
-import cn.intelvision.request.FaceDetectRequest;
 import cn.intelvision.request.face.*;
-import cn.intelvision.response.FaceDetectResponse;
 import cn.intelvision.response.face.*;
 import org.junit.BeforeClass;
 import org.junit.FixMethodOrder;
@@ -36,7 +34,7 @@ public class PersonTest extends BaseTest {
     public static void beforeClass() {
         BaseTest.beforeClass();
         FaceDetectRequest request = new FaceDetectRequest();
-        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        String path = PersonTest.class.getClassLoader().getResource(".").getPath();
         File file = new File(path, "jordan.jpg");
         request.setImg(file);
         FaceDetectResponse response = zenoClient.execute(request);

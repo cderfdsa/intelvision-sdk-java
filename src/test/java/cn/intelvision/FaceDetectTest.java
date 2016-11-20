@@ -1,12 +1,16 @@
 package cn.intelvision;
 
-import cn.intelvision.request.FaceDetectRequest;
-import cn.intelvision.request.FaceLandmarkRequest;
-import cn.intelvision.response.FaceDetectResponse;
-import cn.intelvision.response.FaceLandmarkResponse;
+import cn.intelvision.model.Point;
+import cn.intelvision.request.face.FaceDetectRequest;
+import cn.intelvision.request.face.FaceLandmarkRequest;
+import cn.intelvision.response.face.FaceDetectResponse;
+import cn.intelvision.response.face.FaceLandmarkResponse;
+import org.junit.FixMethodOrder;
 import org.junit.Test;
+import org.junit.runners.MethodSorters;
 
 import java.io.File;
+import java.util.List;
 
 import static org.junit.Assert.*;
 
@@ -14,10 +18,13 @@ import static org.junit.Assert.*;
  * @author lan
  * @since 2016-03-14
  */
+@FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class FaceDetectTest extends BaseTest {
 
+    private static String faceId;
+
     @Test
-    public void testDetect() {
+    public void test1Detect() {
         FaceDetectRequest request = new FaceDetectRequest();
         String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
         File file = new File(path, "jordan.jpg");
@@ -31,23 +38,15 @@ public class FaceDetectTest extends BaseTest {
         assertEquals(tag, response.getTag());
         assertNotNull(response.getFaces().get(0).getFaceId());
         assertEquals(16, response.getFaces().get(0).getFaceId().length());
+        faceId = response.getFaces().get(0).getFaceId();
     }
 
     @Test
-    public void testLandmark(){
-        FaceDetectRequest request = new FaceDetectRequest();
-        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
-        File file = new File(path, "jordan.jpg");
-        assertTrue("image is not exists.", file.exists());
-        request.setImg(file);
-        String tag = "jordan";
-        request.setTag(tag);
-        FaceDetectResponse response = zenoClient.execute(request);
-        String faceId = response.getFaces().get(0).getFaceId();
-
+    public void test2Landmark() {
         FaceLandmarkRequest landmarkRequest = new FaceLandmarkRequest();
         landmarkRequest.setFaceId(faceId);
         FaceLandmarkResponse landmarkResponse = zenoClient.execute(landmarkRequest);
-        landmarkResponse.getPoints();
+        List<Point> points = landmarkResponse.getPoints();
+        assertEquals(7, points.size());
     }
 }

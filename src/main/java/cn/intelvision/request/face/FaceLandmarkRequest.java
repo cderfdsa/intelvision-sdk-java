@@ -1,7 +1,8 @@
-package cn.intelvision.request;
+package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
-import cn.intelvision.response.FaceLandmarkResponse;
+import cn.intelvision.request.ZenoRequest;
+import cn.intelvision.response.face.FaceLandmarkResponse;
 
 /**
  * @author lan
