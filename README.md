@@ -11,10 +11,10 @@ Download [intelvision-sdk-java](https://s3.cn-north-1.amazonaws.com.cn/zeno/inte
 <dependency>
     <groupId>cn.intelvision</groupId>
     <artifactId>intelvision-sdk</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 or Gradle:
 ```groovy
-compile 'cn.intelvision:intelvision-sdk:1.0.0'
+compile 'cn.intelvision:intelvision-sdk:1.0.1'
 ```

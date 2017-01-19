@@ -1,9 +1,9 @@
 package cn.intelvision;
 
-import cn.intelvision.http.JsonMapper;
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
 import cn.intelvision.http.HttpService;
+import cn.intelvision.http.JsonMapper;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.ZenoResponse;
 import org.apache.http.HttpEntity;
@@ -61,9 +61,11 @@ public class DefaultZenoClient implements ZenoClient {
             BinFile binFile = field.getAnnotation(BinFile.class);
             if (binFile != null) {
                 try {
-                    FileBody img = new FileBody((File) field.get(request));
-                    builder.addPart(binFile.name(), img);
-                    hasFile = true;
+                    if (field.get(request) != null) {
+                        FileBody img = new FileBody((File) field.get(request));
+                        builder.addPart(binFile.name(), img);
+                        hasFile = true;
+                    }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }

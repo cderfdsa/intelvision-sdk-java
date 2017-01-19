@@ -49,4 +49,19 @@ public class FaceDetectTest extends BaseTest {
         List<Point> points = landmarkResponse.getPoints();
         assertEquals(7, points.size());
     }
+
+    @Test
+    public void test3Detect() {
+        FaceDetectRequest request = new FaceDetectRequest();
+        request.setUrl("https://www.intelvision.cn/img/demos/demo-03.jpg");
+        String tag = "liusisi";
+        request.setTag(tag);
+        FaceDetectResponse response = zenoClient.execute(request);
+        assertNotNull(response.getImageId());
+        assertEquals(16, response.getImageId().length());
+        assertEquals(tag, response.getTag());
+        assertNotNull(response.getFaces().get(0).getFaceId());
+        assertEquals(16, response.getFaces().get(0).getFaceId().length());
+        faceId = response.getFaces().get(0).getFaceId();
+    }
 }
