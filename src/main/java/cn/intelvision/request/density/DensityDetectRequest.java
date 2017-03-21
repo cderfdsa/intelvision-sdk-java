@@ -1,6 +1,7 @@
 package cn.intelvision.request.density;
 
 import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Bytes;
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
@@ -19,6 +20,9 @@ public class DensityDetectRequest extends ZenoRequest<DensityDetectResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Bytes(name = "img")
+    private byte[] data;
 
     @Stream(name = "img")
     private InputStream is;
@@ -43,8 +47,12 @@ public class DensityDetectRequest extends ZenoRequest<DensityDetectResponse> {
         this.img = img;
     }
 
-    public void setImg(InputStream is) {
-        this.is = is;
+    public void setImg(byte[] img) {
+        this.data = img;
+    }
+
+    public void setImg(InputStream img) {
+        this.is = img;
     }
 
     public void setX(Integer x) {

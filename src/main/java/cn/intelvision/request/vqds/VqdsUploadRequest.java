@@ -1,7 +1,8 @@
 package cn.intelvision.request.vqds;
 
-import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Bytes;
+import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.vqds.VqdsUploadResponse;
@@ -20,6 +21,9 @@ public class VqdsUploadRequest extends ZenoRequest<VqdsUploadResponse> {
     @BinFile(name = "img")
     private File img;
 
+    @Bytes(name = "img")
+    private byte[] data;
+
     @Stream(name = "img")
     private InputStream is;
 
@@ -29,6 +33,10 @@ public class VqdsUploadRequest extends ZenoRequest<VqdsUploadResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(byte[] img) {
+        this.data = img;
     }
 
     public void setImg(InputStream img) {

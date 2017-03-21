@@ -1,6 +1,7 @@
 package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Bytes;
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
@@ -18,6 +19,9 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
     @BinFile(name = "img")
     private File img;
 
+    @Bytes(name = "img")
+    private byte[] data;
+
     @Stream(name = "img")
     private InputStream is;
 
@@ -29,6 +33,10 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(byte[] img) {
+        this.data = img;
     }
 
     public void setImg(InputStream img) {

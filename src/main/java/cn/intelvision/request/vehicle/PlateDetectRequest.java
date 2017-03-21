@@ -1,6 +1,7 @@
 package cn.intelvision.request.vehicle;
 
 import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Bytes;
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
@@ -19,6 +20,9 @@ public class PlateDetectRequest extends ZenoRequest<PlateDetectResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Bytes(name = "img")
+    private byte[] data;
 
     @Stream(name = "img")
     private InputStream is;
@@ -44,6 +48,10 @@ public class PlateDetectRequest extends ZenoRequest<PlateDetectResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(byte[] img) {
+        this.data = img;
     }
 
     public void setImg(InputStream img) {

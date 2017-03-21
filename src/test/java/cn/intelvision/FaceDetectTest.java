@@ -9,9 +9,7 @@ import org.junit.FixMethodOrder;
 import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -83,5 +81,36 @@ public class FaceDetectTest extends BaseTest {
         assertNotNull(response.getFaces().get(0).getFaceId());
         assertEquals(16, response.getFaces().get(0).getFaceId().length());
         faceId = response.getFaces().get(0).getFaceId();
+    }
+
+    @Test
+    public void test5Detect() throws Exception {
+        FaceDetectRequest request = new FaceDetectRequest();
+        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        File file = new File(path, "jordan.jpg");
+        assertTrue("image is not exists.", file.exists());
+        request.setImg(input2byte(new FileInputStream(file)));
+        String tag = "jordan";
+        request.setTag(tag);
+        FaceDetectResponse response = zenoClient.execute(request);
+        assertNotNull(response.getImageId());
+        assertEquals(16, response.getImageId().length());
+        assertEquals(tag, response.getTag());
+        assertNotNull(response.getFaces().get(0).getFaceId());
+        assertEquals(16, response.getFaces().get(0).getFaceId().length());
+        faceId = response.getFaces().get(0).getFaceId();
+    }
+
+    private static byte[] input2byte(InputStream inStream) throws IOException {
+        if (inStream == null) {
+            return new byte[0];
+        }
+        ByteArrayOutputStream swapStream = new ByteArrayOutputStream();
+        byte[] buff = new byte[8192];
+        int rc;
+        while ((rc = inStream.read(buff, 0, 8192)) > 0) {
+            swapStream.write(buff, 0, rc);
+        }
+        return swapStream.toByteArray();
     }
 }

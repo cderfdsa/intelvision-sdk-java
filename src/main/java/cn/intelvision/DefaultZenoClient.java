@@ -1,6 +1,7 @@
 package cn.intelvision;
 
 import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Bytes;
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.Stream;
 import cn.intelvision.http.HttpService;
@@ -14,6 +15,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
+import org.apache.http.entity.mime.content.ByteArrayBody;
 import org.apache.http.entity.mime.content.FileBody;
 import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.entity.mime.content.StringBody;
@@ -74,6 +76,19 @@ public class DefaultZenoClient implements ZenoClient {
                     e.printStackTrace();
                 }
 
+            }
+            Bytes bytes = field.getAnnotation(Bytes.class);
+            if (bytes != null) {
+                try {
+                    if (field.get(request) != null) {
+                        ByteArrayBody body = new ByteArrayBody((byte[]) field.get(request), "");
+                        builder.addPart(bytes.name(), body);
+                        hasFile = true;
+                        continue;
+                    }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
             }
             Stream stream = field.getAnnotation(Stream.class);
             if (stream != null) {

@@ -1,10 +1,11 @@
 package cn.intelvision.request.face;
 
+import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Bytes;
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.face.DetectSearchResponse;
-import cn.intelvision.annotation.BinFile;
 
 import java.io.File;
 import java.io.InputStream;
@@ -22,6 +23,9 @@ public class DetectSearchRequest extends ZenoRequest<DetectSearchResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Bytes(name = "img")
+    private byte[] data;
 
     @Stream(name = "img")
     private InputStream is;
@@ -54,6 +58,10 @@ public class DetectSearchRequest extends ZenoRequest<DetectSearchResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(byte[] img) {
+        this.data = img;
     }
 
     public void setImg(InputStream img) {
