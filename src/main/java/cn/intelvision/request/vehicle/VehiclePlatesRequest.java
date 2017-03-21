@@ -13,10 +13,6 @@ public class VehiclePlatesRequest extends ZenoRequest<VehiclePlatesResponse> {
     @Param(name = "vehicle_id")
     private String vehicleId;
 
-    public String getVehicleId() {
-        return vehicleId;
-    }
-
     public void setVehicleId(String vehicleId) {
         this.vehicleId = vehicleId;
     }

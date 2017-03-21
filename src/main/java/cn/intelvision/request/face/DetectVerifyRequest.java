@@ -38,60 +38,32 @@ public class DetectVerifyRequest extends ZenoRequest<DetectVerifyResponse> {
     @Param(name = "height")
     private Integer height;
 
-    public String getUrl() {
-        return url;
-    }
-
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public File getImg() {
-        return img;
     }
 
     public void setImg(File img) {
         this.img = img;
     }
 
-    public void setImg(InputStream is) {
-        this.is = is;
-    }
-
-    public String getPersonId() {
-        return personId;
+    public void setImg(InputStream img) {
+        this.is = img;
     }
 
     public void setPersonId(String personId) {
         this.personId = personId;
     }
 
-    public Integer getX() {
-        return x;
-    }
-
     public void setX(Integer x) {
         this.x = x;
-    }
-
-    public Integer getY() {
-        return y;
     }
 
     public void setY(Integer y) {
         this.y = y;
     }
 
-    public Integer getWidth() {
-        return width;
-    }
-
     public void setWidth(Integer width) {
         this.width = width;
-    }
-
-    public Integer getHeight() {
-        return height;
     }
 
     public void setHeight(Integer height) {

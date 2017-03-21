@@ -15,16 +15,8 @@ public class PlatesetCreateRequest extends ZenoRequest<PlatesetCreateResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getPlatesetName() {
-        return platesetName;
-    }
-
     public void setPlatesetName(String platesetName) {
         this.platesetName = platesetName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

@@ -17,16 +17,9 @@ public class VehicleCreateResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     @JsonProperty("vehicle_id")
     public String getVehicleId() {
         return vehicleId;
     }
 
-    public void setVehicleId(String vehicleId) {
-        this.vehicleId = vehicleId;
-    }
 }

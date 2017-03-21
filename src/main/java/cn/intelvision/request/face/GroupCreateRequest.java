@@ -15,16 +15,8 @@ public class GroupCreateRequest extends ZenoRequest<GroupCreateResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getGroupName() {
-        return groupName;
-    }
-
     public void setGroupName(String groupName) {
         this.groupName = groupName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

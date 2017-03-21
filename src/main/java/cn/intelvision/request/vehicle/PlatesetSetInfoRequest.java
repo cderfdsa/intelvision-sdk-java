@@ -18,24 +18,12 @@ public class PlatesetSetInfoRequest extends ZenoRequest<PlatesetSetInfoResponse>
     @Param(name = "tag")
     private String tag;
 
-    public String getPlatesetId() {
-        return platesetId;
-    }
-
     public void setPlatesetId(String platesetId) {
         this.platesetId = platesetId;
     }
 
-    public String getPlatesetName() {
-        return platesetName;
-    }
-
     public void setPlatesetName(String platesetName) {
         this.platesetName = platesetName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

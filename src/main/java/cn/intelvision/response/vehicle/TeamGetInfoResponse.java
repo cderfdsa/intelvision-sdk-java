@@ -15,7 +15,4 @@ public class TeamGetInfoResponse extends ZenoResponse {
         return team;
     }
 
-    public void setTeam(Team team) {
-        this.team = team;
-    }
 }

@@ -15,16 +15,8 @@ public class FacesetCreateRequest extends ZenoRequest<FacesetCreateResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getFacesetName() {
-        return facesetName;
-    }
-
     public void setFacesetName(String facesetName) {
         this.facesetName = facesetName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

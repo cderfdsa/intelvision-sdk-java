@@ -15,16 +15,8 @@ public class GroupAddPersonRequest extends ZenoRequest<GroupAddPersonResponse> {
     @Param(name = "person_id")
     private String personId;
 
-    public String getGroupId() {
-        return groupId;
-    }
-
     public void setGroupId(String groupId) {
         this.groupId = groupId;
-    }
-
-    public String getPersonId() {
-        return personId;
     }
 
     public void setPersonId(String personId) {

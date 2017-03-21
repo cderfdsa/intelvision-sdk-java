@@ -21,32 +21,16 @@ public class VqdsDetectRequest extends ZenoRequest<VqdsDetectResponse> {
     @Param(name = "y")
     private Integer y;
 
-    public String getImageIds() {
-        return imageIds;
-    }
-
     public void setImageIds(String imageIds) {
         this.imageIds = imageIds;
-    }
-
-    public String getRefImageIds() {
-        return refImageIds;
     }
 
     public void setRefImageIds(String refImageIds) {
         this.refImageIds = refImageIds;
     }
 
-    public Integer getX() {
-        return x;
-    }
-
     public void setX(Integer x) {
         this.x = x;
-    }
-
-    public Integer getY() {
-        return y;
     }
 
     public void setY(Integer y) {

@@ -14,7 +14,4 @@ public class DetectSearchResponse extends ZenoResponse {
         return recognition;
     }
 
-    public void setRecognition(Search recognition) {
-        this.recognition = recognition;
-    }
 }

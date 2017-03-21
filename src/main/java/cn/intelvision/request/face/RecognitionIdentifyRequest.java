@@ -15,16 +15,8 @@ public class RecognitionIdentifyRequest extends ZenoRequest<RecognitionIdentifyR
     @Param(name = "group_id")
     private String groupId;
 
-    public String getFaceId() {
-        return faceId;
-    }
-
     public void setFaceId(String faceId) {
         this.faceId = faceId;
-    }
-
-    public String getGroupId() {
-        return groupId;
     }
 
     public void setGroupId(String groupId) {

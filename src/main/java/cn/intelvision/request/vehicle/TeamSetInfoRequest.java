@@ -19,24 +19,12 @@ public class TeamSetInfoRequest extends ZenoRequest<TeamSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getTeamId() {
-        return teamId;
-    }
-
     public void setTeamId(String teamId) {
         this.teamId = teamId;
     }
 
-    public String getTeamName() {
-        return teamName;
-    }
-
     public void setTeamName(String teamName) {
         this.teamName = teamName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

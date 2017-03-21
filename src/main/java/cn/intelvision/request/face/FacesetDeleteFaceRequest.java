@@ -15,16 +15,8 @@ public class FacesetDeleteFaceRequest extends ZenoRequest<FacesetDeleteFaceRespo
     @Param(name = "faceset_id")
     private String facesetId;
 
-    public String getFaceId() {
-        return faceId;
-    }
-
     public void setFaceId(String faceId) {
         this.faceId = faceId;
-    }
-
-    public String getFacesetId() {
-        return facesetId;
     }
 
     public void setFacesetId(String facesetId) {

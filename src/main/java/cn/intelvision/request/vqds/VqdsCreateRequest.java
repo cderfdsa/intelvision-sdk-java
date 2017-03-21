@@ -18,24 +18,12 @@ public class VqdsCreateRequest extends ZenoRequest<VqdsCreateResponse> {
     @Param(name = "image_ids")
     private String imageIds;
 
-    public String getName() {
-        return name;
-    }
-
     public void setName(String name) {
         this.name = name;
     }
 
-    public String getTag() {
-        return tag;
-    }
-
     public void setTag(String tag) {
         this.tag = tag;
-    }
-
-    public String getImageIds() {
-        return imageIds;
     }
 
     public void setImageIds(String imageIds) {

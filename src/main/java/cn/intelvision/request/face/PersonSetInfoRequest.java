@@ -27,48 +27,24 @@ public class PersonSetInfoRequest extends ZenoRequest<PersonSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getPersonId() {
-        return personId;
-    }
-
     public void setPersonId(String personId) {
         this.personId = personId;
-    }
-
-    public String getPersonName() {
-        return personName;
     }
 
     public void setPersonName(String personName) {
         this.personName = personName;
     }
 
-    public Integer getAge() {
-        return age;
-    }
-
     public void setAge(Integer age) {
         this.age = age;
-    }
-
-    public Integer getRace() {
-        return race;
     }
 
     public void setRace(Integer race) {
         this.race = race;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
     public void setGender(String gender) {
         this.gender = gender;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

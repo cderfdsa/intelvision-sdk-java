@@ -17,7 +17,4 @@ public class VehiclePlatesResponse extends ZenoResponse {
         return plates;
     }
 
-    public void setPlates(List<Plate> plates) {
-        this.plates = plates;
-    }
 }

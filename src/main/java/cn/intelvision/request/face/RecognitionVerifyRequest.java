@@ -15,16 +15,8 @@ public class RecognitionVerifyRequest extends ZenoRequest<RecognitionVerifyRespo
     @Param(name = "person_id")
     private String personId;
 
-    public String getFaceId() {
-        return faceId;
-    }
-
     public void setFaceId(String faceId) {
         this.faceId = faceId;
-    }
-
-    public String getPersonId() {
-        return personId;
     }
 
     public void setPersonId(String personId) {

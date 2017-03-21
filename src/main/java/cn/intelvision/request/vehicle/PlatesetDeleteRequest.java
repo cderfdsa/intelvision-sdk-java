@@ -12,10 +12,6 @@ public class PlatesetDeleteRequest extends ZenoRequest<PlatesetDeleteResponse> {
     @Param(name = "plateset_id")
     private String platesetId;
 
-    public String getPlatesetId() {
-        return platesetId;
-    }
-
     public void setPlatesetId(String platesetId) {
         this.platesetId = platesetId;
     }

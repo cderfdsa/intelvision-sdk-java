@@ -18,24 +18,12 @@ public class FacesetSetInfoRequest extends ZenoRequest<FacesetSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getTag() {
-        return tag;
-    }
-
     public void setTag(String tag) {
         this.tag = tag;
     }
 
-    public String getFacesetId() {
-        return facesetId;
-    }
-
     public void setFacesetId(String facesetId) {
         this.facesetId = facesetId;
-    }
-
-    public String getFacesetName() {
-        return facesetName;
     }
 
     public void setFacesetName(String facesetName) {

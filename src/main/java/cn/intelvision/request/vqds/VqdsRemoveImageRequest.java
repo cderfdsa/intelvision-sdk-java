@@ -18,24 +18,12 @@ public class VqdsRemoveImageRequest extends ZenoRequest<VqdsRemoveImageResponse>
     @Param(name = "image_ids")
     private String imageIds;
 
-    public String getVqdsName() {
-        return vqdsName;
-    }
-
     public void setVqdsName(String vqdsName) {
         this.vqdsName = vqdsName;
     }
 
-    public String getVqdsId() {
-        return vqdsId;
-    }
-
     public void setVqdsId(String vqdsId) {
         this.vqdsId = vqdsId;
-    }
-
-    public String getImageIds() {
-        return imageIds;
     }
 
     public void setImageIds(String imageIds) {

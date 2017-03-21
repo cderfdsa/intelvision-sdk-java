@@ -73,7 +73,7 @@ public class FaceDetectTest extends BaseTest {
         String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
         File file = new File(path, "jordan.jpg");
         assertTrue("image is not exists.", file.exists());
-        request.setIs(new FileInputStream(file));
+        request.setImg(new FileInputStream(file));
         String tag = "jordan";
         request.setTag(tag);
         FaceDetectResponse response = zenoClient.execute(request);

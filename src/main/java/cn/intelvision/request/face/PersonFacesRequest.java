@@ -12,10 +12,6 @@ public class PersonFacesRequest extends ZenoRequest<PersonFacesResponse> {
     @Param(name = "person_id")
     private String personId;
 
-    public String getPersonId() {
-        return personId;
-    }
-
     public void setPersonId(String personId) {
         this.personId = personId;
     }

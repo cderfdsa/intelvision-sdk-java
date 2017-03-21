@@ -16,16 +16,9 @@ public class TeamCreateResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     @JsonProperty("team_id")
     public String getTeamId() {
         return teamId;
     }
 
-    public void setTeamId(String teamId) {
-        this.teamId = teamId;
-    }
 }

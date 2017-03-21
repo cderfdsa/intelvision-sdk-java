@@ -14,7 +14,4 @@ public class DetectIdentifyResponse extends ZenoResponse {
         return recognition;
     }
 
-    public void setRecognition(Identify recognition) {
-        this.recognition = recognition;
-    }
 }

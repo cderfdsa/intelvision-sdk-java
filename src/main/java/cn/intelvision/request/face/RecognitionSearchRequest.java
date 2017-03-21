@@ -21,32 +21,16 @@ public class RecognitionSearchRequest extends ZenoRequest<RecognitionSearchRespo
     @Param(name = "score")
     private Integer score;
 
-    public Integer getScore() {
-        return score;
-    }
-
     public void setScore(Integer score) {
         this.score = score;
-    }
-
-    public Integer getCount() {
-        return count;
     }
 
     public void setCount(Integer count) {
         this.count = count;
     }
 
-    public String getFacesetId() {
-        return facesetId;
-    }
-
     public void setFacesetId(String facesetId) {
         this.facesetId = facesetId;
-    }
-
-    public String getFaceId() {
-        return faceId;
     }
 
     public void setFaceId(String faceId) {

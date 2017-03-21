@@ -16,16 +16,8 @@ public class TeamCreateRequest extends ZenoRequest<TeamCreateResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getTeamName() {
-        return teamName;
-    }
-
     public void setTeamName(String teamName) {
         this.teamName = teamName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

@@ -14,7 +14,4 @@ public class DetectVerifyResponse extends ZenoResponse {
         return recognition;
     }
 
-    public void setRecognition(Verify recognition) {
-        this.recognition = recognition;
-    }
 }

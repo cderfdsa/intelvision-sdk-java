@@ -15,7 +15,4 @@ public class VehicleGetInfoResponse extends ZenoResponse {
         return vehicle;
     }
 
-    public void setVehicle(Vehicle vehicle) {
-        this.vehicle = vehicle;
-    }
 }

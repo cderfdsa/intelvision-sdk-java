@@ -12,10 +12,6 @@ public class ImageGetInfoRequest extends ZenoRequest<ImageGetInfoResponse> {
     @Param(name = "image_id")
     private String imageId;
 
-    public String getImageId() {
-        return imageId;
-    }
-
     public void setImageId(String imageId) {
         this.imageId = imageId;
     }

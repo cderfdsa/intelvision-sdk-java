@@ -15,16 +15,8 @@ public class RecognitionCompareRequest extends ZenoRequest<RecognitionCompareRes
     @Param(name = "face_id2")
     private String faceId2;
 
-    public String getFaceId1() {
-        return faceId1;
-    }
-
     public void setFaceId1(String faceId1) {
         this.faceId1 = faceId1;
-    }
-
-    public String getFaceId2() {
-        return faceId2;
     }
 
     public void setFaceId2(String faceId2) {

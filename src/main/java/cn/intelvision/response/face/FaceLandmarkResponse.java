@@ -24,17 +24,9 @@ public class FaceLandmarkResponse extends ZenoResponse {
         return detectionId;
     }
 
-    public void setDetectionId(String detectionId) {
-        this.detectionId = detectionId;
-    }
-
     @JsonProperty("face")
     public Face getFace() {
         return face;
-    }
-
-    public void setFace(Face face) {
-        this.face = face;
     }
 
     @JsonProperty("image")
@@ -42,16 +34,9 @@ public class FaceLandmarkResponse extends ZenoResponse {
         return image;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
     @JsonProperty("points")
     public List<Point> getPoints() {
         return points;
     }
 
-    public void setPoints(List<Point> points) {
-        this.points = points;
-    }
 }

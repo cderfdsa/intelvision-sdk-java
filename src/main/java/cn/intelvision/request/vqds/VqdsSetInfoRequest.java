@@ -21,32 +21,16 @@ public class VqdsSetInfoRequest extends ZenoRequest<VqdsSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getVqdsName() {
-        return vqdsName;
-    }
-
     public void setVqdsName(String vqdsName) {
         this.vqdsName = vqdsName;
-    }
-
-    public String getVqdsId() {
-        return vqdsId;
     }
 
     public void setVqdsId(String vqdsId) {
         this.vqdsId = vqdsId;
     }
 
-    public String getNewName() {
-        return newName;
-    }
-
     public void setNewName(String newName) {
         this.newName = newName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

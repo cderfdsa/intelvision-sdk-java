@@ -15,16 +15,8 @@ public class VqdsDeleteRequest extends ZenoRequest<VqdsDeleteResponse> {
     @Param(name = "names")
     private String names;
 
-    public String getVqdsIds() {
-        return vqdsIds;
-    }
-
     public void setVqdsIds(String vqdsIds) {
         this.vqdsIds = vqdsIds;
-    }
-
-    public String getNames() {
-        return names;
     }
 
     public void setNames(String names) {

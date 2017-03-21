@@ -38,60 +38,32 @@ public class DetectIdentifyRequest extends ZenoRequest<DetectIdentifyResponse> {
     @Param(name = "height")
     private Integer height;
 
-    public String getUrl() {
-        return url;
-    }
-
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public File getImg() {
-        return img;
     }
 
     public void setImg(File img) {
         this.img = img;
     }
 
-    public void setImg(InputStream is) {
-        this.is = is;
-    }
-
-    public String getGroupId() {
-        return groupId;
+    public void setImg(InputStream img) {
+        this.is = img;
     }
 
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
-    public Integer getX() {
-        return x;
-    }
-
     public void setX(Integer x) {
         this.x = x;
-    }
-
-    public Integer getY() {
-        return y;
     }
 
     public void setY(Integer y) {
         this.y = y;
     }
 
-    public Integer getWidth() {
-        return width;
-    }
-
     public void setWidth(Integer width) {
         this.width = width;
-    }
-
-    public Integer getHeight() {
-        return height;
     }
 
     public void setHeight(Integer height) {

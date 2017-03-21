@@ -16,7 +16,4 @@ public class PersonGroupsResponse extends ZenoResponse {
         return groups;
     }
 
-    public void setGroups(List<Group> groups) {
-        this.groups = groups;
-    }
 }

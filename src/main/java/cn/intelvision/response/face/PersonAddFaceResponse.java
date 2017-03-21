@@ -6,6 +6,7 @@ import cn.intelvision.response.ZenoResponse;
  * Created by pc on 2016/3/16.
  */
 public class PersonAddFaceResponse extends ZenoResponse {
+
     private boolean success;
     private int added;
 
@@ -13,15 +14,8 @@ public class PersonAddFaceResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     public int getAdded() {
         return added;
     }
 
-    public void setAdded(int added) {
-        this.added = added;
-    }
 }

@@ -17,7 +17,4 @@ public class TeamListResponse extends ZenoResponse {
         return teams;
     }
 
-    public void setTeams(List<Team> teams) {
-        this.teams = teams;
-    }
 }

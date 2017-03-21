@@ -14,15 +14,8 @@ public class FacesetAddFaceResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     public int getAdded() {
         return added;
     }
 
-    public void setAdded(int added) {
-        this.added = added;
-    }
 }

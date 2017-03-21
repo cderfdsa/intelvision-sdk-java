@@ -15,16 +15,8 @@ public class PersonDeleteFaceRequest extends ZenoRequest<PersonDeleteFaceRespons
     @Param(name = "face_id")
     private String faceId;
 
-    public String getPersonId() {
-        return personId;
-    }
-
     public void setPersonId(String personId) {
         this.personId = personId;
-    }
-
-    public String getFaceId() {
-        return faceId;
     }
 
     public void setFaceId(String faceId) {

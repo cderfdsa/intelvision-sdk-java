@@ -15,16 +15,8 @@ public class FaceSetInfoRequest extends ZenoRequest<FaceSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getFaceId() {
-        return faceId;
-    }
-
     public void setFaceId(String faceId) {
         this.faceId = faceId;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

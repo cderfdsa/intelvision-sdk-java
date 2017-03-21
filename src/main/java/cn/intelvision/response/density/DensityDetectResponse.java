@@ -13,7 +13,4 @@ public class DensityDetectResponse extends ZenoResponse {
         return number;
     }
 
-    public void setNumber(int number) {
-        this.number = number;
-    }
 }

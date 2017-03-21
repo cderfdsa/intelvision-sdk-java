@@ -23,24 +23,16 @@ public class VqdsUploadRequest extends ZenoRequest<VqdsUploadResponse> {
     @Stream(name = "img")
     private InputStream is;
 
-    public String getUrl() {
-        return url;
-    }
-
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public File getImg() {
-        return img;
     }
 
     public void setImg(File img) {
         this.img = img;
     }
 
-    public void setImg(InputStream is) {
-        this.is = is;
+    public void setImg(InputStream img) {
+        this.is = img;
     }
 
     @Override

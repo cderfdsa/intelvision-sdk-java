@@ -27,28 +27,16 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public File getImg() {
-        return img;
-    }
-
     public void setImg(File img) {
         this.img = img;
     }
 
-    public void setImg(InputStream is) {
-        this.is = is;
-    }
-
-    public String getUrl() {
-        return url;
+    public void setImg(InputStream img) {
+        this.is = img;
     }
 
     public void setUrl(String url) {
         this.url = url;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

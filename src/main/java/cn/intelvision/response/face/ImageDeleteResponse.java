@@ -6,6 +6,7 @@ import cn.intelvision.response.ZenoResponse;
  * Created by pc on 2016/3/15.
  */
 public class ImageDeleteResponse extends ZenoResponse {
+
     private boolean success;
     private Integer deleted;
 
@@ -13,15 +14,8 @@ public class ImageDeleteResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     public Integer getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(Integer deleted) {
-        this.deleted = deleted;
-    }
 }

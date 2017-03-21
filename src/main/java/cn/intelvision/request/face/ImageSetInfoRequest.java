@@ -15,16 +15,8 @@ public class ImageSetInfoRequest extends ZenoRequest<ImageSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getImageId() {
-        return imageId;
-    }
-
     public void setImageId(String imageId) {
         this.imageId = imageId;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

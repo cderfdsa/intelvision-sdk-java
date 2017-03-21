@@ -17,24 +17,12 @@ public class GroupSetInfoRequest extends ZenoRequest<GroupSetInfoResponse> {
     @Param(name = "tag")
     private String tag;
 
-    public String getGroupId() {
-        return groupId;
-    }
-
     public void setGroupId(String groupId) {
         this.groupId = groupId;
     }
 
-    public String getGroupName() {
-        return groupName;
-    }
-
     public void setGroupName(String groupName) {
         this.groupName = groupName;
-    }
-
-    public String getTag() {
-        return tag;
     }
 
     public void setTag(String tag) {

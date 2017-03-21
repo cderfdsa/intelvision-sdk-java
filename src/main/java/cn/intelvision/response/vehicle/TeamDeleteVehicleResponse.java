@@ -15,15 +15,8 @@ public class TeamDeleteVehicleResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     public int getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(int deleted) {
-        this.deleted = deleted;
-    }
 }

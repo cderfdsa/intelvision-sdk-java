@@ -12,10 +12,6 @@ public class PlatesetGetInfoRequest extends ZenoRequest<PlatesetGetInfoResponse>
     @Param(name = "plateset_id")
     private String platesetId;
 
-    public String getPlatesetId() {
-        return platesetId;
-    }
-
     public void setPlatesetId(String platesetId) {
         this.platesetId = platesetId;
     }

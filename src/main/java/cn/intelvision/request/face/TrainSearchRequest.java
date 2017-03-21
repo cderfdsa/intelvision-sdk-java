@@ -12,10 +12,6 @@ public class TrainSearchRequest extends ZenoRequest<TrainSearchResponse> {
     @Param(name = "faceset_id")
     private String facesetId;
 
-    public String getFacesetId() {
-        return facesetId;
-    }
-
     public void setFacesetId(String facesetId) {
         this.facesetId = facesetId;
     }

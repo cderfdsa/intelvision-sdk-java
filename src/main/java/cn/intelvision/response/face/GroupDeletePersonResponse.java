@@ -6,6 +6,7 @@ import cn.intelvision.response.ZenoResponse;
  * Created by pc on 2016/3/16.
  */
 public class GroupDeletePersonResponse extends ZenoResponse {
+
     private boolean success;
     private int deleted;
 
@@ -13,15 +14,8 @@ public class GroupDeletePersonResponse extends ZenoResponse {
         return success;
     }
 
-    public void setSuccess(boolean success) {
-        this.success = success;
-    }
-
     public int getDeleted() {
         return deleted;
     }
 
-    public void setDeleted(int deleted) {
-        this.deleted = deleted;
-    }
 }

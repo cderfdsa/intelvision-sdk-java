@@ -16,16 +16,8 @@ public class TeamDeleteVehicleRequest extends ZenoRequest<TeamDeleteVehicleRespo
     @Param(name = "vehicle_id")
     private String vehicleId;
 
-    public String getTeamId() {
-        return teamId;
-    }
-
     public void setTeamId(String teamId) {
         this.teamId = teamId;
-    }
-
-    public String getVehicleId() {
-        return vehicleId;
     }
 
     public void setVehicleId(String vehicleId) {
