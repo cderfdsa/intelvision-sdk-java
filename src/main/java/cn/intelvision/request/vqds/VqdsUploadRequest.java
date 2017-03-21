@@ -2,10 +2,12 @@ package cn.intelvision.request.vqds;
 
 import cn.intelvision.annotation.Param;
 import cn.intelvision.annotation.BinFile;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.vqds.VqdsUploadResponse;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Created by pc on 2016/3/16.
@@ -17,6 +19,9 @@ public class VqdsUploadRequest extends ZenoRequest<VqdsUploadResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Stream(name = "img")
+    private InputStream is;
 
     public String getUrl() {
         return url;
@@ -32,6 +37,10 @@ public class VqdsUploadRequest extends ZenoRequest<VqdsUploadResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(InputStream is) {
+        this.is = is;
     }
 
     @Override

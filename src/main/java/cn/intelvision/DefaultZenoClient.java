@@ -2,6 +2,7 @@ package cn.intelvision;
 
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.http.HttpService;
 import cn.intelvision.http.JsonMapper;
 import cn.intelvision.request.ZenoRequest;
@@ -14,12 +15,14 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.mime.MultipartEntityBuilder;
 import org.apache.http.entity.mime.content.FileBody;
+import org.apache.http.entity.mime.content.InputStreamBody;
 import org.apache.http.entity.mime.content.StringBody;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
@@ -65,11 +68,24 @@ public class DefaultZenoClient implements ZenoClient {
                         FileBody img = new FileBody((File) field.get(request));
                         builder.addPart(binFile.name(), img);
                         hasFile = true;
+                        continue;
                     }
                 } catch (IllegalAccessException e) {
                     e.printStackTrace();
                 }
 
+            }
+            Stream stream = field.getAnnotation(Stream.class);
+            if (stream != null) {
+                try {
+                    if (field.get(request) != null) {
+                        InputStreamBody body = new InputStreamBody((InputStream) field.get(request), "");
+                        builder.addPart(stream.name(), body);
+                        hasFile = true;
+                    }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                }
             }
         }
         HttpEntity entity = null;

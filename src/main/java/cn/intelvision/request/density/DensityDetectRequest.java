@@ -2,10 +2,12 @@ package cn.intelvision.request.density;
 
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.density.DensityDetectResponse;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Created by pc on 2016/3/16.
@@ -17,6 +19,9 @@ public class DensityDetectRequest extends ZenoRequest<DensityDetectResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Stream(name = "img")
+    private InputStream is;
 
     @Param(name = "x")
     private Integer x;
@@ -44,6 +49,10 @@ public class DensityDetectRequest extends ZenoRequest<DensityDetectResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(InputStream is) {
+        this.is = is;
     }
 
     public Integer getX() {

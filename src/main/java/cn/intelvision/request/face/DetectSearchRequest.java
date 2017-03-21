@@ -1,11 +1,13 @@
 package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.Param;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.face.DetectSearchResponse;
 import cn.intelvision.annotation.BinFile;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Created by pc on 2016/8/10.
@@ -20,6 +22,9 @@ public class DetectSearchRequest extends ZenoRequest<DetectSearchResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Stream(name = "img")
+    private InputStream is;
 
     @Param(name = "count")
     private Integer count;
@@ -66,6 +71,10 @@ public class DetectSearchRequest extends ZenoRequest<DetectSearchResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(InputStream is) {
+        this.is = is;
     }
 
     public Integer getCount() {

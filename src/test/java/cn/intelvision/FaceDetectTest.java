@@ -10,6 +10,8 @@ import org.junit.Test;
 import org.junit.runners.MethodSorters;
 
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -55,6 +57,24 @@ public class FaceDetectTest extends BaseTest {
         FaceDetectRequest request = new FaceDetectRequest();
         request.setUrl("https://www.intelvision.cn/img/demos/demo-03.jpg");
         String tag = "liusisi";
+        request.setTag(tag);
+        FaceDetectResponse response = zenoClient.execute(request);
+        assertNotNull(response.getImageId());
+        assertEquals(16, response.getImageId().length());
+        assertEquals(tag, response.getTag());
+        assertNotNull(response.getFaces().get(0).getFaceId());
+        assertEquals(16, response.getFaces().get(0).getFaceId().length());
+        faceId = response.getFaces().get(0).getFaceId();
+    }
+
+    @Test
+    public void test4Detect() throws FileNotFoundException {
+        FaceDetectRequest request = new FaceDetectRequest();
+        String path = FaceDetectTest.class.getClassLoader().getResource(".").getPath();
+        File file = new File(path, "jordan.jpg");
+        assertTrue("image is not exists.", file.exists());
+        request.setIs(new FileInputStream(file));
+        String tag = "jordan";
         request.setTag(tag);
         FaceDetectResponse response = zenoClient.execute(request);
         assertNotNull(response.getImageId());

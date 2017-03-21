@@ -2,10 +2,12 @@ package cn.intelvision.request.vehicle;
 
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.vehicle.PlateDetectResponse;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Created by pc on 2016/3/16.
@@ -17,6 +19,9 @@ public class PlateDetectRequest extends ZenoRequest<PlateDetectResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Stream(name = "img")
+    private InputStream is;
 
     @Param(name = "tag")
     private String tag;
@@ -47,6 +52,10 @@ public class PlateDetectRequest extends ZenoRequest<PlateDetectResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(InputStream is) {
+        this.is = is;
     }
 
     public String getTag() {

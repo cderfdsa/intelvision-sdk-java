@@ -2,10 +2,12 @@ package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.face.DetectVerifyResponse;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * Created by pc on 2016/8/10.
@@ -17,6 +19,9 @@ public class DetectVerifyRequest extends ZenoRequest<DetectVerifyResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Stream(name = "img")
+    private InputStream is;
 
     @Param(name = "person_id")
     private String personId;
@@ -47,6 +52,10 @@ public class DetectVerifyRequest extends ZenoRequest<DetectVerifyResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(InputStream is) {
+        this.is = is;
     }
 
     public String getPersonId() {

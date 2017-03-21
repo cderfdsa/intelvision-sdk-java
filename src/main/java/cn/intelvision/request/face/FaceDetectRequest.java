@@ -2,10 +2,12 @@ package cn.intelvision.request.face;
 
 import cn.intelvision.annotation.BinFile;
 import cn.intelvision.annotation.Param;
+import cn.intelvision.annotation.Stream;
 import cn.intelvision.request.ZenoRequest;
 import cn.intelvision.response.face.FaceDetectResponse;
 
 import java.io.File;
+import java.io.InputStream;
 
 /**
  * @author lan
@@ -15,6 +17,9 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
 
     @BinFile(name = "img")
     private File img;
+
+    @Stream(name = "img")
+    private InputStream is;
 
     @Param(name = "url")
     private String url;
@@ -28,6 +33,10 @@ public class FaceDetectRequest extends ZenoRequest<FaceDetectResponse> {
 
     public void setImg(File img) {
         this.img = img;
+    }
+
+    public void setImg(InputStream is) {
+        this.is = is;
     }
 
     public String getUrl() {
