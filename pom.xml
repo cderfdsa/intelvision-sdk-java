@@ -4,7 +4,7 @@
 
     <groupId>cn.intelvision</groupId>
     <artifactId>intelvision-sdk</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
     <packaging>jar</packaging>
 
     <name>intelvision-sdk-java</name>
