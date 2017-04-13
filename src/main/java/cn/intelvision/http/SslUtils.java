@@ -1,5 +1,6 @@
 package cn.intelvision.http;
 
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
 import org.apache.http.conn.ssl.SSLConnectionSocketFactory;
 import org.apache.http.conn.ssl.TrustSelfSignedStrategy;
 import org.apache.http.ssl.SSLContexts;
@@ -27,8 +28,7 @@ public class SslUtils {
                         }
                     })
                     .build();
-            return new SSLConnectionSocketFactory(sslcontext, new String[]{"TLSv1"}, null,
-                    SSLConnectionSocketFactory.getDefaultHostnameVerifier());
+            return new SSLConnectionSocketFactory(sslcontext, new NoopHostnameVerifier());
         } catch (NoSuchAlgorithmException e) {
             e.printStackTrace();
         } catch (KeyManagementException e) {
