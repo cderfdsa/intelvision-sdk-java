@@ -1,5 +1,6 @@
 package cn.intelvision.http;
 
+import org.apache.http.client.config.RequestConfig;
 import org.apache.http.config.Registry;
 import org.apache.http.config.RegistryBuilder;
 import org.apache.http.conn.socket.ConnectionSocketFactory;
@@ -24,8 +25,10 @@ public final class HttpService {
         PoolingHttpClientConnectionManager cm = new PoolingHttpClientConnectionManager(r);
         cm.setMaxTotal(100);
         cm.setDefaultMaxPerRoute(100);
+        RequestConfig config = RequestConfig.custom().setConnectTimeout(5000).setSocketTimeout(5000).build();
         return HttpClients.custom()
                 .setConnectionManager(cm)
+                .setDefaultRequestConfig(config)
                 .build();
     }
 
